@@ -166,5 +166,11 @@
   "languageDesc": "Uygulama dilini değiştir",
   "languageSystem": "Sistem",
   "languageTurkish": "Türkçe",
-  "languageEnglish": "English"
+  "languageEnglish": "English",
+
+  "themeMode": "Tema",
+  "themeModeDesc": "Uygulama temasını değiştir",
+  "themeDark": "Koyu",
+  "themeLight": "Açık",
+  "themeSystem": "Sistem"
 }

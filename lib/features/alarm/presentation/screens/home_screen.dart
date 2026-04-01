@@ -277,7 +277,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                 const Spacer(),
                 Text(
                   t.nAlarms(state.alarms.length),
-                  style: const TextStyle(color: AppColors.textSecondary),
+                  style: TextStyle(color: AppColorsExtension.of(context).textSecondary),
                 ),
               ],
             ),
@@ -291,19 +291,19 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Icon(Icons.alarm_off, size: 64, color: AppColors.textHint),
+                  Icon(Icons.alarm_off, size: 64, color: AppColorsExtension.of(context).textHint),
                   const SizedBox(height: 16),
                   Text(
                     t.noAlarmsYet,
-                    style: const TextStyle(
-                      color: AppColors.textSecondary,
+                    style: TextStyle(
+                      color: AppColorsExtension.of(context).textSecondary,
                       fontSize: 16,
                     ),
                   ),
                   const SizedBox(height: 8),
                   Text(
                     t.noAlarmsHint,
-                    style: const TextStyle(color: AppColors.textHint),
+                    style: TextStyle(color: AppColorsExtension.of(context).textHint),
                   ),
                 ],
               ),
@@ -349,12 +349,13 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
       context: context,
       initialTime: initialTime,
       builder: (context, child) {
+        final c = AppColorsExtension.of(context);
         return Theme(
           data: Theme.of(context).copyWith(
             timePickerTheme: TimePickerThemeData(
-              backgroundColor: AppColors.surfaceDark,
-              hourMinuteColor: AppColors.cardDark,
-              dialBackgroundColor: AppColors.cardDark,
+              backgroundColor: c.surface,
+              hourMinuteColor: c.card,
+              dialBackgroundColor: c.card,
             ),
           ),
           child: child!,
@@ -394,6 +395,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
 
   Widget _buildMonitoringCard() {
     final t = S.of(context);
+    final c = AppColorsExtension.of(context);
     final isMonitoring = _status.isMonitoring;
     final isSleepDetected = _status.sleepDetected;
     final isScreenOff = _status.isScreenOff;
@@ -412,11 +414,11 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     } else if (isMonitoring && !isAutoDetection) {
       statusText = t.statusAutoDetectionOff;
       statusIcon = Icons.pause_circle_outline;
-      statusColor = AppColors.textHint;
+      statusColor = c.textHint;
     } else if (isMonitoring && _status.outsideTimeRange) {
       statusText = t.statusOutsideRange;
       statusIcon = Icons.schedule;
-      statusColor = AppColors.textHint;
+      statusColor = c.textHint;
     } else if (isMonitoring && isCountingDown) {
       final remaining = _status.remainingSeconds;
       final timeText = remaining > 60
@@ -445,7 +447,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     } else {
       statusText = t.notMonitoring;
       statusIcon = Icons.visibility_off;
-      statusColor = AppColors.textHint;
+      statusColor = c.textHint;
     }
 
     return Container(
@@ -501,7 +503,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     showDialog(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        backgroundColor: AppColors.surfaceDark,
+        backgroundColor: AppColorsExtension.of(context).surface,
         title: Text(t.deleteAlarm),
         content: Text(t.deleteAlarmConfirm),
         actions: [

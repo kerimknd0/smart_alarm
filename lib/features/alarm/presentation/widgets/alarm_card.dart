@@ -23,6 +23,7 @@ class AlarmCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = S.of(context);
+    final c = AppColorsExtension.of(context);
     return Dismissible(
       key: Key(alarm.id),
       direction: DismissDirection.endToStart,
@@ -47,7 +48,7 @@ class AlarmCard extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: AppColors.cardDark,
+                color: c.card,
                 borderRadius: BorderRadius.circular(16),
                 border: alarm.isActive
                     ? Border.all(
@@ -69,8 +70,8 @@ class AlarmCard extends StatelessWidget {
                             fontSize: 32,
                             fontWeight: FontWeight.bold,
                             color: alarm.isActive
-                                ? AppColors.textPrimary
-                                : AppColors.textHint,
+                                ? c.textPrimary
+                                : c.textHint,
                           ),
                         ),
                         const SizedBox(height: 4),
@@ -109,8 +110,8 @@ class AlarmCard extends StatelessWidget {
                               style: TextStyle(
                                 fontSize: 12,
                                 color: alarm.isActive
-                                    ? AppColors.textSecondary
-                                    : AppColors.textHint,
+                                    ? c.textSecondary
+                                    : c.textHint,
                               ),
                             ),
                           ],
@@ -124,9 +125,9 @@ class AlarmCard extends StatelessWidget {
                               hourLabel: t.hours,
                               minuteLabel: t.minutes,
                             )),
-                            style: const TextStyle(
+                            style: TextStyle(
                               fontSize: 12,
-                              color: AppColors.textHint,
+                              color: c.textHint,
                             ),
                           ),
                         ],

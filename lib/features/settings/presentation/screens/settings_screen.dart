@@ -55,6 +55,14 @@ class SettingsScreen extends StatelessWidget {
                 icon: Icons.language,
                 onTap: () => _showLanguageDialog(context, state.languageCode),
               ),
+              _buildOptionTile(
+                context: context,
+                title: t.themeMode,
+                subtitle: t.themeModeDesc,
+                value: _themeModeLabel(t, state.themeMode),
+                icon: Icons.palette_outlined,
+                onTap: () => _showThemeModeDialog(context, state.themeMode),
+              ),
               const SizedBox(height: 24),
 
               // Zamanlama
@@ -109,6 +117,7 @@ class SettingsScreen extends StatelessWidget {
               // Hakkında
               _buildSectionTitle(t.sectionAbout),
               _buildInfoTile(
+                context: context,
                 title: AppConstants.appName,
                 subtitle: t.version('1.0.0'),
                 icon: Icons.info_outline,
@@ -143,17 +152,18 @@ class SettingsScreen extends StatelessWidget {
     required IconData icon,
     required ValueChanged<bool> onChanged,
   }) {
+    final c = AppColorsExtension.of(context);
     return Container(
       margin: const EdgeInsets.only(bottom: 8),
       decoration: BoxDecoration(
-        color: AppColors.cardDark,
+        color: c.card,
         borderRadius: BorderRadius.circular(16),
       ),
       child: SwitchListTile(
         title: Text(title, style: const TextStyle(fontWeight: FontWeight.w500)),
         subtitle: Text(
           subtitle,
-          style: const TextStyle(color: AppColors.textHint),
+          style: TextStyle(color: c.textHint),
         ),
         secondary: Icon(icon, color: AppColors.primary),
         value: value,
@@ -171,10 +181,11 @@ class SettingsScreen extends StatelessWidget {
     required IconData icon,
     required VoidCallback onTap,
   }) {
+    final c = AppColorsExtension.of(context);
     return Container(
       margin: const EdgeInsets.only(bottom: 8),
       decoration: BoxDecoration(
-        color: AppColors.cardDark,
+        color: c.card,
         borderRadius: BorderRadius.circular(16),
       ),
       child: ListTile(
@@ -182,7 +193,7 @@ class SettingsScreen extends StatelessWidget {
         title: Text(title, style: const TextStyle(fontWeight: FontWeight.w500)),
         subtitle: Text(
           subtitle,
-          style: const TextStyle(color: AppColors.textHint),
+          style: TextStyle(color: c.textHint),
         ),
         trailing: Container(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
@@ -205,14 +216,16 @@ class SettingsScreen extends StatelessWidget {
   }
 
   Widget _buildInfoTile({
+    required BuildContext context,
     required String title,
     required String subtitle,
     required IconData icon,
   }) {
+    final c = AppColorsExtension.of(context);
     return Container(
       margin: const EdgeInsets.only(bottom: 8),
       decoration: BoxDecoration(
-        color: AppColors.cardDark,
+        color: c.card,
         borderRadius: BorderRadius.circular(16),
       ),
       child: ListTile(
@@ -220,7 +233,7 @@ class SettingsScreen extends StatelessWidget {
         title: Text(title, style: const TextStyle(fontWeight: FontWeight.w500)),
         subtitle: Text(
           subtitle,
-          style: const TextStyle(color: AppColors.textHint),
+          style: TextStyle(color: c.textHint),
         ),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       ),
@@ -253,10 +266,11 @@ class SettingsScreen extends StatelessWidget {
 
   void _showWaitTimeDialog(BuildContext context, int currentValue) {
     final t = S.of(context);
+    final c = AppColorsExtension.of(context);
     showDialog(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        backgroundColor: AppColors.surfaceDark,
+        backgroundColor: c.surface,
         title: Text(t.waitTime),
         content: Column(
           mainAxisSize: MainAxisSize.min,
@@ -270,7 +284,7 @@ class SettingsScreen extends StatelessWidget {
                 label,
                 style: TextStyle(
                   color:
-                      isSelected ? AppColors.primary : AppColors.textPrimary,
+                      isSelected ? AppColors.primary : c.textPrimary,
                   fontWeight:
                       isSelected ? FontWeight.bold : FontWeight.normal,
                 ),
@@ -294,10 +308,11 @@ class SettingsScreen extends StatelessWidget {
 
   void _showSleepDurationDialog(BuildContext context, int currentValue) {
     final t = S.of(context);
+    final c = AppColorsExtension.of(context);
     showDialog(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        backgroundColor: AppColors.surfaceDark,
+        backgroundColor: c.surface,
         title: Text(t.sleepDuration),
         content: Column(
           mainAxisSize: MainAxisSize.min,
@@ -307,7 +322,7 @@ class SettingsScreen extends StatelessWidget {
               title: Text(
                 _formatSleepDuration(context, option),
                 style: TextStyle(
-                  color: isSelected ? AppColors.primary : AppColors.textPrimary,
+                  color: isSelected ? AppColors.primary : c.textPrimary,
                   fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
                 ),
               ),
@@ -356,6 +371,7 @@ class SettingsScreen extends StatelessWidget {
 
   void _showLanguageDialog(BuildContext context, String currentCode) {
     final t = S.of(context);
+    final c = AppColorsExtension.of(context);
     final options = [
       ('system', t.languageSystem),
       ('tr', t.languageTurkish),
@@ -364,7 +380,7 @@ class SettingsScreen extends StatelessWidget {
     showDialog(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        backgroundColor: AppColors.surfaceDark,
+        backgroundColor: c.surface,
         title: Text(t.language),
         content: Column(
           mainAxisSize: MainAxisSize.min,
@@ -377,7 +393,7 @@ class SettingsScreen extends StatelessWidget {
                 label,
                 style: TextStyle(
                   color:
-                      isSelected ? AppColors.primary : AppColors.textPrimary,
+                      isSelected ? AppColors.primary : c.textPrimary,
                   fontWeight:
                       isSelected ? FontWeight.bold : FontWeight.normal,
                 ),
@@ -399,6 +415,64 @@ class SettingsScreen extends StatelessWidget {
     );
   }
 
+  /// Tema moduna göre okunabilir etiket.
+  String _themeModeLabel(S t, String mode) {
+    switch (mode) {
+      case 'light':
+        return t.themeLight;
+      case 'dark':
+        return t.themeDark;
+      default:
+        return t.themeSystem;
+    }
+  }
+
+  void _showThemeModeDialog(BuildContext context, String currentMode) {
+    final t = S.of(context);
+    final c = AppColorsExtension.of(context);
+    final options = [
+      ('dark', t.themeDark),
+      ('light', t.themeLight),
+      ('system', t.themeSystem),
+    ];
+    showDialog(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        backgroundColor: c.surface,
+        title: Text(t.themeMode),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: options.map((option) {
+            final code = option.$1;
+            final label = option.$2;
+            final isSelected = code == currentMode;
+            return ListTile(
+              title: Text(
+                label,
+                style: TextStyle(
+                  color:
+                      isSelected ? AppColors.primary : c.textPrimary,
+                  fontWeight:
+                      isSelected ? FontWeight.bold : FontWeight.normal,
+                ),
+              ),
+              trailing: isSelected
+                  ? const Icon(Icons.check, color: AppColors.primary)
+                  : null,
+              onTap: () {
+                context.read<SettingsBloc>().add(UpdateThemeMode(code));
+                Navigator.pop(dialogContext);
+              },
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+            );
+          }).toList(),
+        ),
+      ),
+    );
+  }
+
   void _showOptionDialog({
     required BuildContext context,
     required String title,
@@ -407,10 +481,11 @@ class SettingsScreen extends StatelessWidget {
     required String suffix,
     required ValueChanged<int> onSelected,
   }) {
+    final c = AppColorsExtension.of(context);
     showDialog(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        backgroundColor: AppColors.surfaceDark,
+        backgroundColor: c.surface,
         title: Text(title),
         content: Column(
           mainAxisSize: MainAxisSize.min,
@@ -420,7 +495,7 @@ class SettingsScreen extends StatelessWidget {
               title: Text(
                 '$option $suffix',
                 style: TextStyle(
-                  color: isSelected ? AppColors.primary : AppColors.textPrimary,
+                  color: isSelected ? AppColors.primary : c.textPrimary,
                   fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
                 ),
               ),
@@ -536,8 +611,9 @@ class _AlarmSoundDialogState extends State<_AlarmSoundDialog> {
   @override
   Widget build(BuildContext context) {
     final t = S.of(context);
+    final c = AppColorsExtension.of(context);
     return AlertDialog(
-      backgroundColor: AppColors.surfaceDark,
+      backgroundColor: c.surface,
       title: Row(
         children: [
           const Icon(Icons.music_note, color: AppColors.primary, size: 24),
@@ -554,7 +630,7 @@ class _AlarmSoundDialogState extends State<_AlarmSoundDialog> {
                 ? Center(
                     child: Text(
                       t.noAlarmSoundFound,
-                      style: const TextStyle(color: AppColors.textHint),
+                      style: TextStyle(color: c.textHint),
                     ),
                   )
                 : ListView.builder(
@@ -585,7 +661,7 @@ class _AlarmSoundDialogState extends State<_AlarmSoundDialog> {
                                 : Icons.play_circle_outline,
                             color: isSelected
                                 ? AppColors.primary
-                                : AppColors.textHint,
+                                : c.textHint,
                             size: 28,
                           ),
                           title: Text(
@@ -593,7 +669,7 @@ class _AlarmSoundDialogState extends State<_AlarmSoundDialog> {
                             style: TextStyle(
                               color: isSelected
                                   ? AppColors.primary
-                                  : AppColors.textPrimary,
+                                  : c.textPrimary,
                               fontWeight: isSelected
                                   ? FontWeight.bold
                                   : FontWeight.normal,
@@ -689,6 +765,7 @@ class _TimeRangeDialogState extends State<_TimeRangeDialog> {
 
   Future<void> _pickTime(bool isStart) async {
     final initial = isStart ? _start : _end;
+    final c = AppColorsExtension.of(context);
     final picked = await showTimePicker(
       context: context,
       initialTime: initial,
@@ -696,9 +773,9 @@ class _TimeRangeDialogState extends State<_TimeRangeDialog> {
         return Theme(
           data: Theme.of(context).copyWith(
             timePickerTheme: TimePickerThemeData(
-              backgroundColor: AppColors.surfaceDark,
-              hourMinuteColor: AppColors.cardDark,
-              dialBackgroundColor: AppColors.cardDark,
+              backgroundColor: c.surface,
+              hourMinuteColor: c.card,
+              dialBackgroundColor: c.card,
             ),
           ),
           child: MediaQuery(
@@ -722,8 +799,9 @@ class _TimeRangeDialogState extends State<_TimeRangeDialog> {
   @override
   Widget build(BuildContext context) {
     final t = S.of(context);
+    final c = AppColorsExtension.of(context);
     return AlertDialog(
-      backgroundColor: AppColors.surfaceDark,
+      backgroundColor: c.surface,
       title: Row(
         children: [
           const Icon(Icons.schedule, color: AppColors.primary, size: 24),
@@ -736,7 +814,7 @@ class _TimeRangeDialogState extends State<_TimeRangeDialog> {
         children: [
           Text(
             t.activeTimeRangeDialogDesc,
-            style: const TextStyle(color: AppColors.textHint, fontSize: 13),
+            style: TextStyle(color: c.textHint, fontSize: 13),
           ),
           const SizedBox(height: 20),
           Row(
@@ -748,9 +826,9 @@ class _TimeRangeDialogState extends State<_TimeRangeDialog> {
                   onTap: () => _pickTime(true),
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 12),
-                child: Icon(Icons.arrow_forward, color: AppColors.textHint),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 12),
+                child: Icon(Icons.arrow_forward, color: c.textHint),
               ),
               Expanded(
                 child: _timeButton(
@@ -790,13 +868,14 @@ class _TimeRangeDialogState extends State<_TimeRangeDialog> {
     required String time,
     required VoidCallback onTap,
   }) {
+    final c = AppColorsExtension.of(context);
     return InkWell(
       onTap: onTap,
       borderRadius: BorderRadius.circular(12),
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 14),
         decoration: BoxDecoration(
-          color: AppColors.cardDark,
+          color: c.card,
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
             color: AppColors.primary.withValues(alpha: 0.3),
@@ -806,8 +885,8 @@ class _TimeRangeDialogState extends State<_TimeRangeDialog> {
           children: [
             Text(
               label,
-              style: const TextStyle(
-                color: AppColors.textHint,
+              style: TextStyle(
+                color: c.textHint,
                 fontSize: 12,
               ),
             ),

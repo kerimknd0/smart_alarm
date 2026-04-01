@@ -47,4 +47,5 @@ class AppConstants {
   static const String prefAutoAlarmEndHour = 'pref_auto_alarm_end_hour';
   static const String prefAutoAlarmEndMinute = 'pref_auto_alarm_end_minute';
   static const String prefLanguage = 'pref_language';
+  static const String prefThemeMode = 'pref_theme_mode';
 }

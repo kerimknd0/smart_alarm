@@ -72,12 +72,13 @@ class _AlarmRingScreenState extends State<AlarmRingScreen>
   @override
   Widget build(BuildContext context) {
     final t = S.of(context);
+    final c = AppColorsExtension.of(context);
     final sleepDuration = widget.alarm.sleepStart != null
         ? DateTime.now().difference(widget.alarm.sleepStart!)
         : null;
 
     return Scaffold(
-      backgroundColor: AppColors.backgroundDark,
+      backgroundColor: c.background,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 32),
@@ -89,10 +90,10 @@ class _AlarmRingScreenState extends State<AlarmRingScreen>
               // Günaydın mesajı
               Text(
                 t.goodMorning,
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.w300,
-                  color: AppColors.textSecondary,
+                  color: c.textSecondary,
                 ),
               ),
               const SizedBox(height: 32),
@@ -108,10 +109,10 @@ class _AlarmRingScreenState extends State<AlarmRingScreen>
                 },
                 child: Text(
                   _currentTime,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 72,
                     fontWeight: FontWeight.bold,
-                    color: AppColors.textPrimary,
+                    color: c.textPrimary,
                     letterSpacing: 4,
                   ),
                 ),
@@ -159,7 +160,7 @@ class _AlarmRingScreenState extends State<AlarmRingScreen>
               // Tarih
               Text(
                 DateTimeUtils.formatDate(DateTime.now()),
-                style: const TextStyle(color: AppColors.textHint, fontSize: 14),
+                style: TextStyle(color: c.textHint, fontSize: 14),
               ),
 
               const Spacer(flex: 3),

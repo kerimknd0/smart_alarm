@@ -79,3 +79,12 @@ class UpdateLanguage extends SettingsEvent {
   @override
   List<Object?> get props => [languageCode];
 }
+
+/// Tema modunu güncelle ('system', 'dark', 'light').
+class UpdateThemeMode extends SettingsEvent {
+  final String themeMode;
+  const UpdateThemeMode(this.themeMode);
+
+  @override
+  List<Object?> get props => [themeMode];
+}

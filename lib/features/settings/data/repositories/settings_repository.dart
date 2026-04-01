@@ -89,4 +89,11 @@ class SettingsRepository {
 
   Future<void> setLanguage(String value) =>
       _prefs.setString(AppConstants.prefLanguage, value);
+
+  /// Tema tercihi: 'system', 'dark', 'light'
+  String getThemeMode() =>
+      _prefs.getString(AppConstants.prefThemeMode) ?? 'dark';
+
+  Future<void> setThemeMode(String value) =>
+      _prefs.setString(AppConstants.prefThemeMode, value);
 }

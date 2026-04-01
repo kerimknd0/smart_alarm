@@ -322,4 +322,19 @@ class STr extends S {
 
   @override
   String get languageEnglish => 'English';
+
+  @override
+  String get themeMode => 'Tema';
+
+  @override
+  String get themeModeDesc => 'Uygulama temasını değiştir';
+
+  @override
+  String get themeDark => 'Koyu';
+
+  @override
+  String get themeLight => 'Açık';
+
+  @override
+  String get themeSystem => 'Sistem';
 }

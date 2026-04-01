@@ -319,4 +319,19 @@ class SEn extends S {
 
   @override
   String get languageEnglish => 'English';
+
+  @override
+  String get themeMode => 'Theme';
+
+  @override
+  String get themeModeDesc => 'Change application theme';
+
+  @override
+  String get themeDark => 'Dark';
+
+  @override
+  String get themeLight => 'Light';
+
+  @override
+  String get themeSystem => 'System';
 }

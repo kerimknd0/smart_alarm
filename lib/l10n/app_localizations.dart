@@ -666,6 +666,36 @@ abstract class S {
   /// In tr, this message translates to:
   /// **'English'**
   String get languageEnglish;
+
+  /// No description provided for @themeMode.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tema'**
+  String get themeMode;
+
+  /// No description provided for @themeModeDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Uygulama temasını değiştir'**
+  String get themeModeDesc;
+
+  /// No description provided for @themeDark.
+  ///
+  /// In tr, this message translates to:
+  /// **'Koyu'**
+  String get themeDark;
+
+  /// No description provided for @themeLight.
+  ///
+  /// In tr, this message translates to:
+  /// **'Açık'**
+  String get themeLight;
+
+  /// No description provided for @themeSystem.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sistem'**
+  String get themeSystem;
 }
 
 class _SDelegate extends LocalizationsDelegate<S> {

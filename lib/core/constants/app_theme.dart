@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'app_colors.dart';
 
-/// Uygulama teması — koyu tema tabanlı alarm uygulaması.
+/// Uygulama teması — koyu ve açık tema desteği.
 class AppTheme {
   AppTheme._();
 
@@ -102,6 +102,108 @@ class AppTheme {
         bodyMedium: TextStyle(color: AppColors.textSecondary, fontSize: 14),
         bodySmall: TextStyle(color: AppColors.textHint, fontSize: 12),
       ),
+      extensions: const [AppColorsExtension.dark],
+    );
+  }
+
+  static ThemeData get lightTheme {
+    return ThemeData(
+      useMaterial3: true,
+      brightness: Brightness.light,
+      scaffoldBackgroundColor: AppColors.backgroundLight,
+      colorScheme: const ColorScheme.light(
+        primary: AppColors.primary,
+        secondary: AppColors.primaryLight,
+        surface: AppColors.surfaceLight,
+        error: AppColors.error,
+        onPrimary: Colors.white,
+        onSecondary: Colors.white,
+        onSurface: AppColors.textPrimaryLight,
+        onError: Colors.white,
+      ),
+      appBarTheme: const AppBarTheme(
+        backgroundColor: AppColors.backgroundLight,
+        foregroundColor: AppColors.textPrimaryLight,
+        elevation: 0,
+        centerTitle: true,
+      ),
+      cardTheme: CardThemeData(
+        color: AppColors.cardLight,
+        elevation: 0,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      ),
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: AppColors.primary,
+          foregroundColor: Colors.white,
+          padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
+          textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+        ),
+      ),
+      outlinedButtonTheme: OutlinedButtonThemeData(
+        style: OutlinedButton.styleFrom(
+          foregroundColor: AppColors.primary,
+          side: const BorderSide(color: AppColors.primary),
+          padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
+        ),
+      ),
+      textButtonTheme: TextButtonThemeData(
+        style: TextButton.styleFrom(foregroundColor: AppColors.primary),
+      ),
+      switchTheme: SwitchThemeData(
+        thumbColor: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.selected)) {
+            return AppColors.primary;
+          }
+          return AppColors.textHintLight;
+        }),
+        trackColor: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.selected)) {
+            return AppColors.primary.withValues(alpha: 0.5);
+          }
+          return AppColors.cardLight;
+        }),
+      ),
+      floatingActionButtonTheme: const FloatingActionButtonThemeData(
+        backgroundColor: AppColors.primary,
+        foregroundColor: Colors.white,
+      ),
+      dividerTheme: const DividerThemeData(
+        color: AppColors.cardLight,
+        thickness: 1,
+      ),
+      textTheme: const TextTheme(
+        headlineLarge: TextStyle(
+          color: AppColors.textPrimaryLight,
+          fontSize: 32,
+          fontWeight: FontWeight.bold,
+        ),
+        headlineMedium: TextStyle(
+          color: AppColors.textPrimaryLight,
+          fontSize: 24,
+          fontWeight: FontWeight.bold,
+        ),
+        titleLarge: TextStyle(
+          color: AppColors.textPrimaryLight,
+          fontSize: 20,
+          fontWeight: FontWeight.w600,
+        ),
+        titleMedium: TextStyle(
+          color: AppColors.textPrimaryLight,
+          fontSize: 16,
+          fontWeight: FontWeight.w500,
+        ),
+        bodyLarge: TextStyle(color: AppColors.textPrimaryLight, fontSize: 16),
+        bodyMedium: TextStyle(color: AppColors.textSecondaryLight, fontSize: 14),
+        bodySmall: TextStyle(color: AppColors.textHintLight, fontSize: 12),
+      ),
+      extensions: const [AppColorsExtension.light],
     );
   }
 }

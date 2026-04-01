@@ -166,5 +166,11 @@
   "languageDesc": "Change application language",
   "languageSystem": "System",
   "languageTurkish": "Türkçe",
-  "languageEnglish": "English"
+  "languageEnglish": "English",
+
+  "themeMode": "Theme",
+  "themeModeDesc": "Change application theme",
+  "themeDark": "Dark",
+  "themeLight": "Light",
+  "themeSystem": "System"
 }

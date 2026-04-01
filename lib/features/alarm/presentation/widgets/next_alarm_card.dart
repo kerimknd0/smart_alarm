@@ -13,6 +13,7 @@ class NextAlarmCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final c = AppColorsExtension.of(context);
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(24),
@@ -24,7 +25,7 @@ class NextAlarmCard extends StatelessWidget {
                 end: Alignment.bottomRight,
               )
             : null,
-        color: alarm == null ? AppColors.cardDark : null,
+        color: alarm == null ? c.card : null,
         borderRadius: BorderRadius.circular(20),
       ),
       child: alarm != null ? _buildActiveAlarm(context) : _buildNoAlarm(context),
@@ -97,18 +98,19 @@ class NextAlarmCard extends StatelessWidget {
 
   Widget _buildNoAlarm(BuildContext context) {
     final t = S.of(context);
+    final c = AppColorsExtension.of(context);
     return Column(
       children: [
-        const Icon(Icons.nights_stay_outlined, color: AppColors.textHint, size: 48),
+        Icon(Icons.nights_stay_outlined, color: c.textHint, size: 48),
         const SizedBox(height: 12),
         Text(
           t.noAlarm,
-          style: const TextStyle(color: AppColors.textSecondary, fontSize: 16),
+          style: TextStyle(color: c.textSecondary, fontSize: 16),
         ),
         const SizedBox(height: 4),
         Text(
           t.sweetDreams,
-          style: const TextStyle(color: AppColors.textHint, fontSize: 13),
+          style: TextStyle(color: c.textHint, fontSize: 13),
         ),
       ],
     );

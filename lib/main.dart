@@ -98,16 +98,31 @@ class SmartAlarmApp extends StatelessWidget {
         ),
       ],
       child: BlocBuilder<SettingsBloc, SettingsState>(
-        buildWhen: (prev, curr) => prev.languageCode != curr.languageCode,
+        buildWhen: (prev, curr) =>
+            prev.languageCode != curr.languageCode ||
+            prev.themeMode != curr.themeMode,
         builder: (context, state) {
           Locale? locale;
           if (state.languageCode != 'system') {
             locale = Locale(state.languageCode);
           }
+
+          ThemeMode themeMode;
+          switch (state.themeMode) {
+            case 'light':
+              themeMode = ThemeMode.light;
+            case 'dark':
+              themeMode = ThemeMode.dark;
+            default:
+              themeMode = ThemeMode.system;
+          }
+
           return MaterialApp.router(
             title: 'Smart Alarm',
             debugShowCheckedModeBanner: false,
-            theme: AppTheme.darkTheme,
+            theme: AppTheme.lightTheme,
+            darkTheme: AppTheme.darkTheme,
+            themeMode: themeMode,
             routerConfig: appRouter,
             localizationsDelegates: S.localizationsDelegates,
             supportedLocales: S.supportedLocales,
