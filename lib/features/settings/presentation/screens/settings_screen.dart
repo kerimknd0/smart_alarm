@@ -47,6 +47,14 @@ class SettingsScreen extends StatelessWidget {
                       .add(ToggleScreenModeDetection());
                 },
               ),
+              _buildOptionTile(
+                context: context,
+                title: t.language,
+                subtitle: t.languageDesc,
+                value: _languageLabel(t, state.languageCode),
+                icon: Icons.language,
+                onTap: () => _showLanguageDialog(context, state.languageCode),
+              ),
               const SizedBox(height: 24),
 
               // Zamanlama
@@ -331,6 +339,63 @@ class SettingsScreen extends StatelessWidget {
       onSelected: (value) {
         context.read<SettingsBloc>().add(UpdateSnoozeMinutes(value));
       },
+    );
+  }
+
+  /// Dil koduna göre okunabilir etiket.
+  String _languageLabel(S t, String code) {
+    switch (code) {
+      case 'tr':
+        return t.languageTurkish;
+      case 'en':
+        return t.languageEnglish;
+      default:
+        return t.languageSystem;
+    }
+  }
+
+  void _showLanguageDialog(BuildContext context, String currentCode) {
+    final t = S.of(context);
+    final options = [
+      ('system', t.languageSystem),
+      ('tr', t.languageTurkish),
+      ('en', t.languageEnglish),
+    ];
+    showDialog(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        backgroundColor: AppColors.surfaceDark,
+        title: Text(t.language),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: options.map((option) {
+            final code = option.$1;
+            final label = option.$2;
+            final isSelected = code == currentCode;
+            return ListTile(
+              title: Text(
+                label,
+                style: TextStyle(
+                  color:
+                      isSelected ? AppColors.primary : AppColors.textPrimary,
+                  fontWeight:
+                      isSelected ? FontWeight.bold : FontWeight.normal,
+                ),
+              ),
+              trailing: isSelected
+                  ? const Icon(Icons.check, color: AppColors.primary)
+                  : null,
+              onTap: () {
+                context.read<SettingsBloc>().add(UpdateLanguage(code));
+                Navigator.pop(dialogContext);
+              },
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+            );
+          }).toList(),
+        ),
+      ),
     );
   }
 

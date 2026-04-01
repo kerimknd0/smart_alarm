@@ -307,4 +307,19 @@ class STr extends S {
   String formatDurationMinutes(int minutes) {
     return '$minutes dakika';
   }
+
+  @override
+  String get language => 'Dil';
+
+  @override
+  String get languageDesc => 'Uygulama dilini değiştir';
+
+  @override
+  String get languageSystem => 'Sistem';
+
+  @override
+  String get languageTurkish => 'Türkçe';
+
+  @override
+  String get languageEnglish => 'English';
 }

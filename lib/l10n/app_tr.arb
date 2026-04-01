@@ -160,5 +160,11 @@
     "placeholders": {
       "minutes": { "type": "int" }
     }
-  }
+  },
+
+  "language": "Dil",
+  "languageDesc": "Uygulama dilini değiştir",
+  "languageSystem": "Sistem",
+  "languageTurkish": "Türkçe",
+  "languageEnglish": "English"
 }

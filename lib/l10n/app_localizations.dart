@@ -636,6 +636,36 @@ abstract class S {
   /// In tr, this message translates to:
   /// **'{minutes} dakika'**
   String formatDurationMinutes(int minutes);
+
+  /// No description provided for @language.
+  ///
+  /// In tr, this message translates to:
+  /// **'Dil'**
+  String get language;
+
+  /// No description provided for @languageDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Uygulama dilini değiştir'**
+  String get languageDesc;
+
+  /// No description provided for @languageSystem.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sistem'**
+  String get languageSystem;
+
+  /// No description provided for @languageTurkish.
+  ///
+  /// In tr, this message translates to:
+  /// **'Türkçe'**
+  String get languageTurkish;
+
+  /// No description provided for @languageEnglish.
+  ///
+  /// In tr, this message translates to:
+  /// **'English'**
+  String get languageEnglish;
 }
 
 class _SDelegate extends LocalizationsDelegate<S> {

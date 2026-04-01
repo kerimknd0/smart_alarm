@@ -20,6 +20,7 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
     on<ToggleScreenModeDetection>(_onToggleScreenModeDetection);
     on<UpdateAlarmSound>(_onUpdateAlarmSound);
     on<UpdateAutoAlarmTimeRange>(_onUpdateAutoAlarmTimeRange);
+    on<UpdateLanguage>(_onUpdateLanguage);
   }
 
   void _onLoadSettings(LoadSettings event, Emitter<SettingsState> emit) {
@@ -36,6 +37,7 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
         autoAlarmStartMinute: _repository.getAutoAlarmStartMinute(),
         autoAlarmEndHour: _repository.getAutoAlarmEndHour(),
         autoAlarmEndMinute: _repository.getAutoAlarmEndMinute(),
+        languageCode: _repository.getLanguage(),
       ),
     );
   }
@@ -114,5 +116,13 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
       autoAlarmEndHour: event.endHour,
       autoAlarmEndMinute: event.endMinute,
     ));
+  }
+
+  Future<void> _onUpdateLanguage(
+    UpdateLanguage event,
+    Emitter<SettingsState> emit,
+  ) async {
+    await _repository.setLanguage(event.languageCode);
+    emit(state.copyWith(languageCode: event.languageCode));
   }
 }

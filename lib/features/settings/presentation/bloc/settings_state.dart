@@ -15,6 +15,7 @@ class SettingsState extends Equatable {
   final int autoAlarmStartMinute;
   final int autoAlarmEndHour;
   final int autoAlarmEndMinute;
+  final String languageCode; // 'system', 'tr', 'en'
 
   const SettingsState({
     this.waitSeconds = AppConstants.defaultWaitSeconds,
@@ -28,6 +29,7 @@ class SettingsState extends Equatable {
     this.autoAlarmStartMinute = AppConstants.defaultAutoAlarmStartMinute,
     this.autoAlarmEndHour = AppConstants.defaultAutoAlarmEndHour,
     this.autoAlarmEndMinute = AppConstants.defaultAutoAlarmEndMinute,
+    this.languageCode = 'system',
   });
 
   /// Çalışma aralığı okunabilir metni.
@@ -51,6 +53,7 @@ class SettingsState extends Equatable {
     int? autoAlarmStartMinute,
     int? autoAlarmEndHour,
     int? autoAlarmEndMinute,
+    String? languageCode,
   }) {
     return SettingsState(
       waitSeconds: waitSeconds ?? this.waitSeconds,
@@ -64,6 +67,7 @@ class SettingsState extends Equatable {
       autoAlarmStartMinute: autoAlarmStartMinute ?? this.autoAlarmStartMinute,
       autoAlarmEndHour: autoAlarmEndHour ?? this.autoAlarmEndHour,
       autoAlarmEndMinute: autoAlarmEndMinute ?? this.autoAlarmEndMinute,
+      languageCode: languageCode ?? this.languageCode,
     );
   }
 
@@ -80,5 +84,6 @@ class SettingsState extends Equatable {
     autoAlarmStartMinute,
     autoAlarmEndHour,
     autoAlarmEndMinute,
+    languageCode,
   ];
 }

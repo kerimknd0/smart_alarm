@@ -15,6 +15,7 @@ import 'features/alarm/domain/entities/alarm.dart';
 import 'features/alarm/presentation/bloc/alarm_bloc.dart';
 import 'features/settings/presentation/bloc/settings_bloc.dart';
 import 'features/settings/presentation/bloc/settings_event.dart';
+import 'features/settings/presentation/bloc/settings_state.dart';
 import 'injection_container.dart';
 import 'l10n/app_localizations.dart';
 
@@ -96,14 +97,23 @@ class SmartAlarmApp extends StatelessWidget {
           create: (_) => sl<SettingsBloc>()..add(LoadSettings()),
         ),
       ],
-      child: MaterialApp.router(
-        title: 'Smart Alarm',
-        debugShowCheckedModeBanner: false,
-        theme: AppTheme.darkTheme,
-        routerConfig: appRouter,
-        localizationsDelegates: S.localizationsDelegates,
-        supportedLocales: S.supportedLocales,
-        locale: const Locale('tr'),
+      child: BlocBuilder<SettingsBloc, SettingsState>(
+        buildWhen: (prev, curr) => prev.languageCode != curr.languageCode,
+        builder: (context, state) {
+          Locale? locale;
+          if (state.languageCode != 'system') {
+            locale = Locale(state.languageCode);
+          }
+          return MaterialApp.router(
+            title: 'Smart Alarm',
+            debugShowCheckedModeBanner: false,
+            theme: AppTheme.darkTheme,
+            routerConfig: appRouter,
+            localizationsDelegates: S.localizationsDelegates,
+            supportedLocales: S.supportedLocales,
+            locale: locale,
+          );
+        },
       ),
     );
   }

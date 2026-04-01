@@ -70,3 +70,12 @@ class UpdateAutoAlarmTimeRange extends SettingsEvent {
   @override
   List<Object?> get props => [startHour, startMinute, endHour, endMinute];
 }
+
+/// Dil tercihini güncelle ('system', 'tr', 'en').
+class UpdateLanguage extends SettingsEvent {
+  final String languageCode;
+  const UpdateLanguage(this.languageCode);
+
+  @override
+  List<Object?> get props => [languageCode];
+}

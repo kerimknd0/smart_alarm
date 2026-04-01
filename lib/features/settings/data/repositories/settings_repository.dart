@@ -82,4 +82,11 @@ class SettingsRepository {
 
   Future<void> setAutoAlarmEndMinute(int value) =>
       _prefs.setInt(AppConstants.prefAutoAlarmEndMinute, value);
+
+  /// Dil tercihi: 'system', 'tr', 'en'
+  String getLanguage() =>
+      _prefs.getString(AppConstants.prefLanguage) ?? 'system';
+
+  Future<void> setLanguage(String value) =>
+      _prefs.setString(AppConstants.prefLanguage, value);
 }

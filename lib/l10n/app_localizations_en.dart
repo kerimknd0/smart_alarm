@@ -304,4 +304,19 @@ class SEn extends S {
   String formatDurationMinutes(int minutes) {
     return '$minutes minutes';
   }
+
+  @override
+  String get language => 'Language';
+
+  @override
+  String get languageDesc => 'Change application language';
+
+  @override
+  String get languageSystem => 'System';
+
+  @override
+  String get languageTurkish => 'Türkçe';
+
+  @override
+  String get languageEnglish => 'English';
 }
