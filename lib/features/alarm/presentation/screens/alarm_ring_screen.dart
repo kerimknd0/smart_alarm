@@ -5,9 +5,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 
 import '../../../../core/constants/app_colors.dart';
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/services/background_service.dart';
 import '../../../../core/utils/date_time_utils.dart';
+import '../../../../l10n/app_localizations.dart';
 import '../../../../main.dart' show isAlarmRingOpen;
 import '../../domain/entities/alarm.dart';
 import '../bloc/alarm_bloc.dart';
@@ -71,6 +71,7 @@ class _AlarmRingScreenState extends State<AlarmRingScreen>
 
   @override
   Widget build(BuildContext context) {
+    final t = S.of(context);
     final sleepDuration = widget.alarm.sleepStart != null
         ? DateTime.now().difference(widget.alarm.sleepStart!)
         : null;
@@ -86,9 +87,9 @@ class _AlarmRingScreenState extends State<AlarmRingScreen>
               const Spacer(flex: 2),
 
               // Günaydın mesajı
-              const Text(
-                AppStrings.goodMorning,
-                style: TextStyle(
+              Text(
+                t.goodMorning,
+                style: const TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.w300,
                   color: AppColors.textSecondary,
@@ -139,7 +140,11 @@ class _AlarmRingScreenState extends State<AlarmRingScreen>
                       ),
                       const SizedBox(width: 8),
                       Text(
-                        '${AppStrings.youSlept}: ${DateTimeUtils.formatDuration(sleepDuration)}',
+                        t.youSleptDuration(DateTimeUtils.formatDuration(
+                          sleepDuration,
+                          hourLabel: t.hours,
+                          minuteLabel: t.minutes,
+                        )),
                         style: const TextStyle(
                           color: AppColors.primaryLight,
                           fontSize: 15,
@@ -171,9 +176,9 @@ class _AlarmRingScreenState extends State<AlarmRingScreen>
                       borderRadius: BorderRadius.circular(16),
                     ),
                   ),
-                  child: const Text(
-                    AppStrings.dismiss,
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  child: Text(
+                    t.dismiss,
+                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                 ),
               ),
@@ -192,7 +197,7 @@ class _AlarmRingScreenState extends State<AlarmRingScreen>
                     ),
                   ),
                   child: Text(
-                    '${AppStrings.snooze} (${widget.alarm.snoozeDurationMinutes} dk)',
+                    t.snoozeWithDuration(widget.alarm.snoozeDurationMinutes),
                     style: const TextStyle(
                       fontSize: 16,
                       color: AppColors.snoozeColor,

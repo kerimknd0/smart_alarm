@@ -8,9 +8,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_constants.dart';
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/services/background_service.dart';
 import '../../../../core/utils/date_time_utils.dart';
+import '../../../../l10n/app_localizations.dart';
 import '../../../../main.dart' show isAlarmRingOpen;
 import '../../../alarm/data/models/alarm_model.dart';
 import '../bloc/alarm_bloc.dart';
@@ -95,11 +95,11 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
           if (mounted) {
             context.read<AlarmBloc>().add(LoadAlarms());
             ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                content: Text('😴 Uyku algılandı! Otomatik alarm kuruldu.'),
+              SnackBar(
+                content: Text(S.of(context).sleepDetectedSnack),
                 behavior: SnackBarBehavior.floating,
                 backgroundColor: AppColors.primary,
-                duration: Duration(seconds: 4),
+                duration: const Duration(seconds: 4),
               ),
             );
           }
@@ -111,7 +111,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
             context.read<AlarmBloc>().add(LoadAlarms());
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
-                content: const Text('🔄 Hareket algılandı — otomatik alarm iptal edildi.'),
+                content: Text(S.of(context).movementDetectedSnack),
                 behavior: SnackBarBehavior.floating,
                 backgroundColor: AppColors.snoozeColor,
                 duration: const Duration(seconds: 4),
@@ -178,9 +178,10 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
+    final t = S.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: const Text(AppStrings.homeTitle),
+        title: Text(t.homeTitle),
         actions: [
           IconButton(
             icon: const Icon(Icons.settings),
@@ -220,7 +221,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                     ElevatedButton(
                       onPressed: () =>
                           context.read<AlarmBloc>().add(LoadAlarms()),
-                      child: const Text('Tekrar Dene'),
+                      child: Text(t.retryButton),
                     ),
                   ],
                 ),
@@ -238,12 +239,13 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () => _showAddAlarmDialog(context),
         icon: const Icon(Icons.alarm_add),
-        label: const Text(AppStrings.addAlarm),
+        label: Text(t.addAlarm),
       ),
     );
   }
 
   Widget _buildContent(BuildContext context, AlarmLoaded state) {
+    final t = S.of(context);
     return CustomScrollView(
       slivers: [
         // İzleme durumu kartı
@@ -268,13 +270,13 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             child: Row(
               children: [
-                const Text(
-                  AppStrings.alarms,
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                Text(
+                  t.alarms,
+                  style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
                 const Spacer(),
                 Text(
-                  '${state.alarms.length} alarm',
+                  t.nAlarms(state.alarms.length),
                   style: const TextStyle(color: AppColors.textSecondary),
                 ),
               ],
@@ -284,24 +286,24 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
 
         // Alarm listesi
         if (state.alarms.isEmpty)
-          const SliverFillRemaining(
+          SliverFillRemaining(
             child: Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.alarm_off, size: 64, color: AppColors.textHint),
-                  SizedBox(height: 16),
+                  const Icon(Icons.alarm_off, size: 64, color: AppColors.textHint),
+                  const SizedBox(height: 16),
                   Text(
-                    'Henüz alarm yok',
-                    style: TextStyle(
+                    t.noAlarmsYet,
+                    style: const TextStyle(
                       color: AppColors.textSecondary,
                       fontSize: 16,
                     ),
                   ),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   Text(
-                    'Alarm eklemek için + butonuna basın',
-                    style: TextStyle(color: AppColors.textHint),
+                    t.noAlarmsHint,
+                    style: const TextStyle(color: AppColors.textHint),
                   ),
                 ],
               ),
@@ -380,7 +382,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(
-              '${AppStrings.alarmSet}: ${DateTimeUtils.formatTimeWithDate(scheduledAt)}',
+              S.of(context).alarmSetAt(DateTimeUtils.formatTimeWithDate(scheduledAt)),
             ),
             behavior: SnackBarBehavior.floating,
             backgroundColor: AppColors.primary,
@@ -391,6 +393,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   }
 
   Widget _buildMonitoringCard() {
+    final t = S.of(context);
     final isMonitoring = _status.isMonitoring;
     final isSleepDetected = _status.sleepDetected;
     final isScreenOff = _status.isScreenOff;
@@ -403,44 +406,44 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
     Color statusColor;
 
     if (isSleepDetected) {
-      statusText = '😴 Uyku algılandı — alarm kuruldu';
+      statusText = t.statusSleepDetected;
       statusIcon = Icons.bedtime;
       statusColor = AppColors.success;
     } else if (isMonitoring && !isAutoDetection) {
-      statusText = '⏸️ Otomatik algılama kapalı';
+      statusText = t.statusAutoDetectionOff;
       statusIcon = Icons.pause_circle_outline;
       statusColor = AppColors.textHint;
     } else if (isMonitoring && _status.outsideTimeRange) {
-      statusText = '🕐 Çalışma aralığı dışında — algılama beklemede';
+      statusText = t.statusOutsideRange;
       statusIcon = Icons.schedule;
       statusColor = AppColors.textHint;
     } else if (isMonitoring && isCountingDown) {
       final remaining = _status.remainingSeconds;
       final timeText = remaining > 60
-          ? '${remaining ~/ 60} dk ${remaining % 60} sn'
-          : '$remaining sn';
+          ? '${remaining ~/ 60} ${t.formatMinShort} ${remaining % 60} ${t.formatSecShort}'
+          : '$remaining ${t.formatSecShort}';
       if (isScreenMode) {
-        statusText = '🌙 Ekran kapalı — $timeText sonra alarm';
+        statusText = t.statusScreenOff(timeText);
         statusIcon = Icons.nightlight_round;
       } else {
-        statusText = '⏳ Hareketsizlik — $timeText sonra alarm';
+        statusText = t.statusInactivity(timeText);
         statusIcon = Icons.hourglass_bottom;
       }
       statusColor = AppColors.snoozeColor;
     } else if (isMonitoring && isScreenMode && !isScreenOff) {
-      statusText = '📱 Ekran açık — bekleniyor...';
+      statusText = t.statusScreenOn;
       statusIcon = Icons.visibility;
       statusColor = AppColors.primary;
     } else if (isMonitoring && !isScreenMode && !isScreenOff) {
-      statusText = '📱 Telefon kullanılıyor — izleniyor...';
+      statusText = t.statusPhoneInUse;
       statusIcon = Icons.phone_android;
       statusColor = AppColors.primary;
     } else if (isMonitoring) {
-      statusText = AppStrings.monitoring;
+      statusText = t.monitoring;
       statusIcon = Icons.visibility;
       statusColor = AppColors.primary;
     } else {
-      statusText = AppStrings.notMonitoring;
+      statusText = t.notMonitoring;
       statusIcon = Icons.visibility_off;
       statusColor = AppColors.textHint;
     }
@@ -479,7 +482,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Text(
-                isMonitoring ? 'Durdur' : 'Başlat',
+                isMonitoring ? t.stop : t.start,
                 style: TextStyle(
                   color: statusColor,
                   fontSize: 12,
@@ -494,25 +497,26 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   }
 
   void _showDeleteConfirm(BuildContext context, String alarmId) {
+    final t = S.of(context);
     showDialog(
       context: context,
       builder: (dialogContext) => AlertDialog(
         backgroundColor: AppColors.surfaceDark,
-        title: const Text(AppStrings.deleteAlarm),
-        content: const Text(AppStrings.deleteAlarmConfirm),
+        title: Text(t.deleteAlarm),
+        content: Text(t.deleteAlarmConfirm),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(dialogContext),
-            child: const Text(AppStrings.cancel),
+            child: Text(t.cancel),
           ),
           TextButton(
             onPressed: () {
               Navigator.pop(dialogContext);
               context.read<AlarmBloc>().add(DeleteAlarm(alarmId));
             },
-            child: const Text(
-              AppStrings.delete,
-              style: TextStyle(color: AppColors.error),
+            child: Text(
+              t.delete,
+              style: const TextStyle(color: AppColors.error),
             ),
           ),
         ],

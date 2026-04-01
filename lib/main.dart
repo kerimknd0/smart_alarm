@@ -7,7 +7,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'app_router.dart';
 import 'core/constants/app_constants.dart';
-import 'core/constants/app_strings.dart';
 import 'core/constants/app_theme.dart';
 import 'core/services/background_service.dart';
 import 'core/services/notification_service.dart';
@@ -17,12 +16,14 @@ import 'features/alarm/presentation/bloc/alarm_bloc.dart';
 import 'features/settings/presentation/bloc/settings_bloc.dart';
 import 'features/settings/presentation/bloc/settings_event.dart';
 import 'injection_container.dart';
+import 'l10n/app_localizations.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Türkçe tarih formatlaması için locale verisini başlat
+  // Türkçe ve İngilizce tarih formatlaması için locale verisini başlat
   await initializeDateFormatting('tr_TR', null);
+  await initializeDateFormatting('en_US', null);
 
   // Dependency Injection kurulumu
   await initDependencies();
@@ -96,10 +97,13 @@ class SmartAlarmApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp.router(
-        title: AppStrings.appName,
+        title: 'Smart Alarm',
         debugShowCheckedModeBanner: false,
         theme: AppTheme.darkTheme,
         routerConfig: appRouter,
+        localizationsDelegates: S.localizationsDelegates,
+        supportedLocales: S.supportedLocales,
+        locale: const Locale('tr'),
       ),
     );
   }

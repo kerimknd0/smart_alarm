@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/constants/app_colors.dart';
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/utils/date_time_utils.dart';
+import '../../../../l10n/app_localizations.dart';
 import '../../domain/entities/alarm.dart';
 
 /// Sonraki alarm bilgisini gösteren büyük kart.
@@ -27,11 +27,12 @@ class NextAlarmCard extends StatelessWidget {
         color: alarm == null ? AppColors.cardDark : null,
         borderRadius: BorderRadius.circular(20),
       ),
-      child: alarm != null ? _buildActiveAlarm() : _buildNoAlarm(),
+      child: alarm != null ? _buildActiveAlarm(context) : _buildNoAlarm(context),
     );
   }
 
-  Widget _buildActiveAlarm() {
+  Widget _buildActiveAlarm(BuildContext context) {
+    final t = S.of(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -39,9 +40,9 @@ class NextAlarmCard extends StatelessWidget {
           children: [
             const Icon(Icons.alarm, color: Colors.white70, size: 20),
             const SizedBox(width: 8),
-            const Text(
-              AppStrings.nextAlarm,
-              style: TextStyle(color: Colors.white70, fontSize: 14),
+            Text(
+              t.nextAlarm,
+              style: const TextStyle(color: Colors.white70, fontSize: 14),
             ),
             const Spacer(),
             Container(
@@ -52,8 +53,8 @@ class NextAlarmCard extends StatelessWidget {
               ),
               child: Text(
                 alarm!.type == AlarmType.automatic
-                    ? AppStrings.automatic
-                    : AppStrings.manual,
+                    ? t.automatic
+                    : t.manual,
                 style: const TextStyle(color: Colors.white, fontSize: 12),
               ),
             ),
@@ -80,7 +81,12 @@ class NextAlarmCard extends StatelessWidget {
             const Icon(Icons.timelapse, color: Colors.white60, size: 16),
             const SizedBox(width: 6),
             Text(
-              '${DateTimeUtils.timeUntil(alarm!.scheduledAt)} sonra',
+              t.inTime(DateTimeUtils.timeUntil(
+                alarm!.scheduledAt,
+                pastLabel: t.past,
+                hourLabel: t.hours,
+                minuteLabel: t.minutes,
+              )),
               style: const TextStyle(color: Colors.white60, fontSize: 13),
             ),
           ],
@@ -89,19 +95,20 @@ class NextAlarmCard extends StatelessWidget {
     );
   }
 
-  Widget _buildNoAlarm() {
-    return const Column(
+  Widget _buildNoAlarm(BuildContext context) {
+    final t = S.of(context);
+    return Column(
       children: [
-        Icon(Icons.nights_stay_outlined, color: AppColors.textHint, size: 48),
-        SizedBox(height: 12),
+        const Icon(Icons.nights_stay_outlined, color: AppColors.textHint, size: 48),
+        const SizedBox(height: 12),
         Text(
-          AppStrings.noAlarm,
-          style: TextStyle(color: AppColors.textSecondary, fontSize: 16),
+          t.noAlarm,
+          style: const TextStyle(color: AppColors.textSecondary, fontSize: 16),
         ),
-        SizedBox(height: 4),
+        const SizedBox(height: 4),
         Text(
-          'İyi uykular 🌙',
-          style: TextStyle(color: AppColors.textHint, fontSize: 13),
+          t.sweetDreams,
+          style: const TextStyle(color: AppColors.textHint, fontSize: 13),
         ),
       ],
     );

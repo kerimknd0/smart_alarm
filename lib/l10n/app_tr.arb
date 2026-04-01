@@ -1,0 +1,164 @@
+{
+  "@@locale": "tr",
+
+  "appName": "Smart Alarm",
+  "homeTitle": "Smart Alarm",
+
+  "monitoring": "İzleniyor",
+  "notMonitoring": "Pasif",
+  "nextAlarm": "Sonraki Alarm",
+  "noAlarm": "Alarm yok",
+  "lastSleep": "Son Uyku",
+
+  "alarms": "Alarmlar",
+  "addAlarm": "Alarm Ekle",
+  "editAlarm": "Alarm Düzenle",
+  "deleteAlarm": "Alarmı Sil",
+  "deleteAlarmConfirm": "Bu alarmı silmek istediğinize emin misiniz?",
+  "automatic": "Otomatik",
+  "manual": "Manuel",
+  "alarmSet": "Alarm kuruldu",
+  "alarmCancelled": "Alarm iptal edildi",
+  "nAlarms": "{count} alarm",
+  "@nAlarms": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+
+  "goodMorning": "Günaydın! ☀️",
+  "youSlept": "Uyku süreniz",
+  "hours": "saat",
+  "minutes": "dakika",
+  "dismiss": "Kapat",
+  "snooze": "Ertele",
+  "snoozeWithDuration": "Ertele ({minutes} dk)",
+  "@snoozeWithDuration": {
+    "placeholders": {
+      "minutes": { "type": "int" }
+    }
+  },
+
+  "settings": "Ayarlar",
+  "waitTime": "Bekleme Süresi",
+  "waitTimeDesc": "Uyku algılama için bekleme süresi",
+  "sleepDuration": "Uyku Süresi",
+  "sleepDurationDesc": "Otomatik alarm için uyku süresi",
+  "snoozeDuration": "Erteleme Süresi",
+  "snoozeDurationDesc": "Alarm erteleme süresi",
+  "alarmSound": "Alarm Sesi",
+  "alarmSoundDesc": "Alarm çaldığında çalınacak ses",
+  "autoDetection": "Otomatik Algılama",
+  "autoDetectionDesc": "Uyku algılamayı otomatik başlat",
+  "screenModeDetection": "Ekran Durumu Algılama",
+  "screenModeDetectionDesc": "Açık: Sadece ekran kapandığında geri sayım başlar\nKapalı: Uygulama içi hareketsizlikte de geri sayım başlar",
+  "activeTimeRange": "Çalışma Aralığı",
+  "activeTimeRangeDesc": "Otomatik alarm algılamanın aktif olacağı saat aralığı",
+  "activeTimeRangeDialogDesc": "Otomatik uyku algılamanın aktif olacağı saat aralığını seçin. Bu aralık dışında yeni algılama başlamaz, ancak zaten kurulmuş alarmlar etkilenmez.",
+
+  "permissionsRequired": "İzinler Gerekli",
+  "notificationPermission": "Bildirim İzni",
+  "notificationPermissionDesc": "Alarm çalabilmek için bildirim izni gereklidir.",
+  "exactAlarmPermission": "Kesin Alarm İzni",
+  "exactAlarmPermissionDesc": "Alarmların tam zamanında çalması için gereklidir.",
+  "grant": "İzin Ver",
+  "granted": "Verildi ✓",
+  "continueText": "Devam Et",
+
+  "cancel": "İptal",
+  "save": "Kaydet",
+  "delete": "Sil",
+  "ok": "Tamam",
+  "yes": "Evet",
+  "no": "Hayır",
+  "retryButton": "Tekrar Dene",
+
+  "noAlarmsYet": "Henüz alarm yok",
+  "noAlarmsHint": "Alarm eklemek için + butonuna basın",
+  "past": "Geçmiş",
+  "inTime": "{time} sonra",
+  "@inTime": {
+    "placeholders": {
+      "time": { "type": "String" }
+    }
+  },
+  "sweetDreams": "İyi uykular 🌙",
+
+  "stop": "Durdur",
+  "start": "Başlat",
+
+  "statusSleepDetected": "😴 Uyku algılandı — alarm kuruldu",
+  "statusAutoDetectionOff": "⏸️ Otomatik algılama kapalı",
+  "statusOutsideRange": "🕐 Çalışma aralığı dışında — algılama beklemede",
+  "statusScreenOff": "🌙 Ekran kapalı — {time} sonra alarm",
+  "@statusScreenOff": {
+    "placeholders": {
+      "time": { "type": "String" }
+    }
+  },
+  "statusInactivity": "⏳ Hareketsizlik — {time} sonra alarm",
+  "@statusInactivity": {
+    "placeholders": {
+      "time": { "type": "String" }
+    }
+  },
+  "statusScreenOn": "📱 Ekran açık — bekleniyor...",
+  "statusPhoneInUse": "📱 Telefon kullanılıyor — izleniyor...",
+
+  "sleepDetectedSnack": "😴 Uyku algılandı! Otomatik alarm kuruldu.",
+  "movementDetectedSnack": "🔄 Hareket algılandı — otomatik alarm iptal edildi.",
+
+  "sectionGeneral": "Genel",
+  "sectionTiming": "Zamanlama",
+  "sectionSound": "Ses",
+  "sectionAbout": "Hakkında",
+  "version": "Versiyon {version}",
+  "@version": {
+    "placeholders": {
+      "version": { "type": "String" }
+    }
+  },
+
+  "noAlarmSoundFound": "Alarm sesi bulunamadı",
+  "defaultAlarmSound": "Varsayılan Alarm Sesi",
+  "defaultLabel": "Varsayılan",
+  "startLabel": "Başlangıç",
+  "endLabel": "Bitiş",
+
+  "alarmSetAt": "Alarm kuruldu: {time}",
+  "@alarmSetAt": {
+    "placeholders": {
+      "time": { "type": "String" }
+    }
+  },
+  "youSleptDuration": "Uyku süreniz: {duration}",
+  "@youSleptDuration": {
+    "placeholders": {
+      "duration": { "type": "String" }
+    }
+  },
+
+  "formatMinShort": "dk",
+  "formatSecShort": "sn",
+  "formatHour": "saat",
+  "formatHourShort": "sa",
+  "formatDurationHoursMinutes": "{hours} saat {minutes} dakika",
+  "@formatDurationHoursMinutes": {
+    "placeholders": {
+      "hours": { "type": "int" },
+      "minutes": { "type": "int" }
+    }
+  },
+  "formatDurationHours": "{hours} saat",
+  "@formatDurationHours": {
+    "placeholders": {
+      "hours": { "type": "int" }
+    }
+  },
+  "formatDurationMinutes": "{minutes} dakika",
+  "@formatDurationMinutes": {
+    "placeholders": {
+      "minutes": { "type": "int" }
+    }
+  }
+}

@@ -1,0 +1,164 @@
+{
+  "@@locale": "en",
+
+  "appName": "Smart Alarm",
+  "homeTitle": "Smart Alarm",
+
+  "monitoring": "Monitoring",
+  "notMonitoring": "Inactive",
+  "nextAlarm": "Next Alarm",
+  "noAlarm": "No alarm",
+  "lastSleep": "Last Sleep",
+
+  "alarms": "Alarms",
+  "addAlarm": "Add Alarm",
+  "editAlarm": "Edit Alarm",
+  "deleteAlarm": "Delete Alarm",
+  "deleteAlarmConfirm": "Are you sure you want to delete this alarm?",
+  "automatic": "Automatic",
+  "manual": "Manual",
+  "alarmSet": "Alarm set",
+  "alarmCancelled": "Alarm cancelled",
+  "nAlarms": "{count} alarm(s)",
+  "@nAlarms": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+
+  "goodMorning": "Good Morning! ☀️",
+  "youSlept": "You slept",
+  "hours": "hours",
+  "minutes": "minutes",
+  "dismiss": "Dismiss",
+  "snooze": "Snooze",
+  "snoozeWithDuration": "Snooze ({minutes} min)",
+  "@snoozeWithDuration": {
+    "placeholders": {
+      "minutes": { "type": "int" }
+    }
+  },
+
+  "settings": "Settings",
+  "waitTime": "Wait Time",
+  "waitTimeDesc": "Wait time for sleep detection",
+  "sleepDuration": "Sleep Duration",
+  "sleepDurationDesc": "Sleep duration for automatic alarm",
+  "snoozeDuration": "Snooze Duration",
+  "snoozeDurationDesc": "Alarm snooze duration",
+  "alarmSound": "Alarm Sound",
+  "alarmSoundDesc": "Sound to play when alarm rings",
+  "autoDetection": "Auto Detection",
+  "autoDetectionDesc": "Start sleep detection automatically",
+  "screenModeDetection": "Screen State Detection",
+  "screenModeDetectionDesc": "On: Countdown starts only when screen is off\nOff: Countdown also starts on in-app inactivity",
+  "activeTimeRange": "Active Time Range",
+  "activeTimeRangeDesc": "Time range for automatic alarm detection",
+  "activeTimeRangeDialogDesc": "Select the time range for automatic sleep detection. No new detection starts outside this range, but already set alarms are not affected.",
+
+  "permissionsRequired": "Permissions Required",
+  "notificationPermission": "Notification Permission",
+  "notificationPermissionDesc": "Notification permission is required to sound alarms.",
+  "exactAlarmPermission": "Exact Alarm Permission",
+  "exactAlarmPermissionDesc": "Required for alarms to ring on time.",
+  "grant": "Grant",
+  "granted": "Granted ✓",
+  "continueText": "Continue",
+
+  "cancel": "Cancel",
+  "save": "Save",
+  "delete": "Delete",
+  "ok": "OK",
+  "yes": "Yes",
+  "no": "No",
+  "retryButton": "Retry",
+
+  "noAlarmsYet": "No alarms yet",
+  "noAlarmsHint": "Tap + to add an alarm",
+  "past": "Past",
+  "inTime": "in {time}",
+  "@inTime": {
+    "placeholders": {
+      "time": { "type": "String" }
+    }
+  },
+  "sweetDreams": "Sweet dreams 🌙",
+
+  "stop": "Stop",
+  "start": "Start",
+
+  "statusSleepDetected": "😴 Sleep detected — alarm set",
+  "statusAutoDetectionOff": "⏸️ Auto detection is off",
+  "statusOutsideRange": "🕐 Outside active range — detection paused",
+  "statusScreenOff": "🌙 Screen off — alarm in {time}",
+  "@statusScreenOff": {
+    "placeholders": {
+      "time": { "type": "String" }
+    }
+  },
+  "statusInactivity": "⏳ Inactivity — alarm in {time}",
+  "@statusInactivity": {
+    "placeholders": {
+      "time": { "type": "String" }
+    }
+  },
+  "statusScreenOn": "📱 Screen on — waiting...",
+  "statusPhoneInUse": "📱 Phone in use — monitoring...",
+
+  "sleepDetectedSnack": "😴 Sleep detected! Automatic alarm set.",
+  "movementDetectedSnack": "🔄 Movement detected — automatic alarm cancelled.",
+
+  "sectionGeneral": "General",
+  "sectionTiming": "Timing",
+  "sectionSound": "Sound",
+  "sectionAbout": "About",
+  "version": "Version {version}",
+  "@version": {
+    "placeholders": {
+      "version": { "type": "String" }
+    }
+  },
+
+  "noAlarmSoundFound": "No alarm sound found",
+  "defaultAlarmSound": "Default Alarm Sound",
+  "defaultLabel": "Default",
+  "startLabel": "Start",
+  "endLabel": "End",
+
+  "alarmSetAt": "Alarm set: {time}",
+  "@alarmSetAt": {
+    "placeholders": {
+      "time": { "type": "String" }
+    }
+  },
+  "youSleptDuration": "You slept: {duration}",
+  "@youSleptDuration": {
+    "placeholders": {
+      "duration": { "type": "String" }
+    }
+  },
+
+  "formatMinShort": "min",
+  "formatSecShort": "sec",
+  "formatHour": "hours",
+  "formatHourShort": "hr",
+  "formatDurationHoursMinutes": "{hours} hours {minutes} minutes",
+  "@formatDurationHoursMinutes": {
+    "placeholders": {
+      "hours": { "type": "int" },
+      "minutes": { "type": "int" }
+    }
+  },
+  "formatDurationHours": "{hours} hours",
+  "@formatDurationHours": {
+    "placeholders": {
+      "hours": { "type": "int" }
+    }
+  },
+  "formatDurationMinutes": "{minutes} minutes",
+  "@formatDurationMinutes": {
+    "placeholders": {
+      "minutes": { "type": "int" }
+    }
+  }
+}

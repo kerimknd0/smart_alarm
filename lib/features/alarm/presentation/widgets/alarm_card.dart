@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/constants/app_colors.dart';
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/utils/date_time_utils.dart';
+import '../../../../l10n/app_localizations.dart';
 import '../../domain/entities/alarm.dart';
 
 /// Alarm listesindeki tek bir alarm kartı.
@@ -22,6 +22,7 @@ class AlarmCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final t = S.of(context);
     return Dismissible(
       key: Key(alarm.id),
       direction: DismissDirection.endToStart,
@@ -91,8 +92,8 @@ class AlarmCard extends StatelessWidget {
                               ),
                               child: Text(
                                 alarm.type == AlarmType.automatic
-                                    ? AppStrings.automatic
-                                    : AppStrings.manual,
+                                    ? t.automatic
+                                    : t.manual,
                                 style: TextStyle(
                                   fontSize: 11,
                                   color: alarm.type == AlarmType.automatic
@@ -117,7 +118,12 @@ class AlarmCard extends StatelessWidget {
                         if (alarm.isActive && !alarm.isPast) ...[
                           const SizedBox(height: 4),
                           Text(
-                            '${DateTimeUtils.timeUntil(alarm.scheduledAt)} sonra',
+                            t.inTime(DateTimeUtils.timeUntil(
+                              alarm.scheduledAt,
+                              pastLabel: t.past,
+                              hourLabel: t.hours,
+                              minuteLabel: t.minutes,
+                            )),
                             style: const TextStyle(
                               fontSize: 12,
                               color: AppColors.textHint,
@@ -126,9 +132,9 @@ class AlarmCard extends StatelessWidget {
                         ],
                         if (alarm.isPast) ...[
                           const SizedBox(height: 4),
-                          const Text(
-                            'Geçmiş',
-                            style: TextStyle(
+                          Text(
+                            t.past,
+                            style: const TextStyle(
                               fontSize: 12,
                               color: AppColors.error,
                             ),

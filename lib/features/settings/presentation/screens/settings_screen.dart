@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/constants/app_constants.dart';
-import '../../../../core/constants/app_strings.dart';
 import '../../../../core/services/ringtone_service.dart';
+import '../../../../l10n/app_localizations.dart';
 import '../bloc/settings_bloc.dart';
 import '../bloc/settings_event.dart';
 import '../bloc/settings_state.dart';
@@ -15,19 +15,20 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final t = S.of(context);
     return Scaffold(
-      appBar: AppBar(title: const Text(AppStrings.settings)),
+      appBar: AppBar(title: Text(t.settings)),
       body: BlocBuilder<SettingsBloc, SettingsState>(
         builder: (context, state) {
           return ListView(
             padding: const EdgeInsets.all(16),
             children: [
               // Otomatik Algılama
-              _buildSectionTitle('Genel'),
+              _buildSectionTitle(t.sectionGeneral),
               _buildSwitchTile(
                 context: context,
-                title: AppStrings.autoDetection,
-                subtitle: AppStrings.autoDetectionDesc,
+                title: t.autoDetection,
+                subtitle: t.autoDetectionDesc,
                 value: state.autoDetection,
                 icon: Icons.auto_awesome,
                 onChanged: (_) {
@@ -36,9 +37,8 @@ class SettingsScreen extends StatelessWidget {
               ),
               _buildSwitchTile(
                 context: context,
-                title: 'Ekran Durumu Algılama',
-                subtitle: 'Açık: Sadece ekran kapandığında geri sayım başlar\n'
-                    'Kapalı: Uygulama içi hareketsizlikte de geri sayım başlar',
+                title: t.screenModeDetection,
+                subtitle: t.screenModeDetectionDesc,
                 value: state.screenModeDetection,
                 icon: Icons.screen_lock_portrait,
                 onChanged: (_) {
@@ -50,37 +50,36 @@ class SettingsScreen extends StatelessWidget {
               const SizedBox(height: 24),
 
               // Zamanlama
-              _buildSectionTitle('Zamanlama'),
+              _buildSectionTitle(t.sectionTiming),
               _buildOptionTile(
                 context: context,
-                title: AppStrings.waitTime,
-                subtitle: AppStrings.waitTimeDesc,
-                value: _formatWaitTime(state.waitSeconds),
+                title: t.waitTime,
+                subtitle: t.waitTimeDesc,
+                value: _formatWaitTime(context, state.waitSeconds),
                 icon: Icons.hourglass_empty,
                 onTap: () => _showWaitTimeDialog(context, state.waitSeconds),
               ),
               _buildOptionTile(
                 context: context,
-                title: AppStrings.sleepDuration,
-                subtitle: AppStrings.sleepDurationDesc,
-                value: _formatSleepDuration(state.sleepMinutes),
+                title: t.sleepDuration,
+                subtitle: t.sleepDurationDesc,
+                value: _formatSleepDuration(context, state.sleepMinutes),
                 icon: Icons.bedtime,
                 onTap: () =>
                     _showSleepDurationDialog(context, state.sleepMinutes),
               ),
               _buildOptionTile(
                 context: context,
-                title: AppStrings.snoozeDuration,
-                subtitle: AppStrings.snoozeDurationDesc,
-                value: '${state.snoozeMinutes} dk',
+                title: t.snoozeDuration,
+                subtitle: t.snoozeDurationDesc,
+                value: '${state.snoozeMinutes} ${t.formatMinShort}',
                 icon: Icons.snooze,
                 onTap: () => _showSnoozeDialog(context, state.snoozeMinutes),
               ),
               _buildOptionTile(
                 context: context,
-                title: 'Çalışma Aralığı',
-                subtitle:
-                    'Otomatik alarm algılamanın aktif olacağı saat aralığı',
+                title: t.activeTimeRange,
+                subtitle: t.activeTimeRangeDesc,
                 value: state.autoAlarmTimeRangeText,
                 icon: Icons.schedule,
                 onTap: () => _showTimeRangeDialog(context, state),
@@ -88,11 +87,11 @@ class SettingsScreen extends StatelessWidget {
               const SizedBox(height: 24),
 
               // Ses
-              _buildSectionTitle('Ses'),
+              _buildSectionTitle(t.sectionSound),
               _buildOptionTile(
                 context: context,
-                title: 'Alarm Sesi',
-                subtitle: 'Alarm çaldığında çalınacak ses',
+                title: t.alarmSound,
+                subtitle: t.alarmSoundDesc,
                 value: state.alarmSoundTitle,
                 icon: Icons.music_note,
                 onTap: () => _showAlarmSoundDialog(context, state.alarmSound),
@@ -100,10 +99,10 @@ class SettingsScreen extends StatelessWidget {
               const SizedBox(height: 24),
 
               // Hakkında
-              _buildSectionTitle('Hakkında'),
+              _buildSectionTitle(t.sectionAbout),
               _buildInfoTile(
                 title: AppConstants.appName,
-                subtitle: 'Versiyon 1.0.0',
+                subtitle: t.version('1.0.0'),
                 icon: Icons.info_outline,
               ),
             ],
@@ -221,38 +220,43 @@ class SettingsScreen extends StatelessWidget {
   }
 
   /// Saniye değerini okunabilir formata çevirir.
-  String _formatWaitTime(int seconds) {
+  String _formatWaitTime(BuildContext context, int seconds) {
+    final t = S.of(context);
     if (seconds < 60) {
-      return '$seconds sn';
+      return '$seconds ${t.formatSecShort}';
     }
     final minutes = seconds ~/ 60;
-    return '$minutes dk';
+    return '$minutes ${t.formatMinShort}';
   }
 
   /// Dakika değerini okunabilir uyku süresi formatına çevirir.
-  String _formatSleepDuration(int minutes) {
+  String _formatSleepDuration(BuildContext context, int minutes) {
+    final t = S.of(context);
     if (minutes < 60) {
-      return '$minutes dk';
+      return '$minutes ${t.formatMinShort}';
     }
     final hours = minutes ~/ 60;
     final remainingMin = minutes % 60;
     if (remainingMin == 0) {
-      return '$hours saat';
+      return '$hours ${t.formatHour}';
     }
-    return '$hours sa $remainingMin dk';
+    return '$hours ${t.formatHourShort} $remainingMin ${t.formatMinShort}';
   }
 
   void _showWaitTimeDialog(BuildContext context, int currentValue) {
+    final t = S.of(context);
     showDialog(
       context: context,
       builder: (dialogContext) => AlertDialog(
         backgroundColor: AppColors.surfaceDark,
-        title: const Text(AppStrings.waitTime),
+        title: Text(t.waitTime),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: AppConstants.waitTimeOptions.map((option) {
             final isSelected = option == currentValue;
-            final label = option < 60 ? '$option sn' : '${option ~/ 60} dk';
+            final label = option < 60
+                ? '$option ${t.formatSecShort}'
+                : '${option ~/ 60} ${t.formatMinShort}';
             return ListTile(
               title: Text(
                 label,
@@ -281,18 +285,19 @@ class SettingsScreen extends StatelessWidget {
   }
 
   void _showSleepDurationDialog(BuildContext context, int currentValue) {
+    final t = S.of(context);
     showDialog(
       context: context,
       builder: (dialogContext) => AlertDialog(
         backgroundColor: AppColors.surfaceDark,
-        title: const Text(AppStrings.sleepDuration),
+        title: Text(t.sleepDuration),
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: AppConstants.sleepDurationOptions.map((option) {
             final isSelected = option == currentValue;
             return ListTile(
               title: Text(
-                _formatSleepDuration(option),
+                _formatSleepDuration(context, option),
                 style: TextStyle(
                   color: isSelected ? AppColors.primary : AppColors.textPrimary,
                   fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
@@ -316,12 +321,13 @@ class SettingsScreen extends StatelessWidget {
   }
 
   void _showSnoozeDialog(BuildContext context, int currentValue) {
+    final t = S.of(context);
     _showOptionDialog(
       context: context,
-      title: AppStrings.snoozeDuration,
+      title: t.snoozeDuration,
       options: AppConstants.snoozeOptions,
       currentValue: currentValue,
-      suffix: 'dk',
+      suffix: t.formatMinShort,
       onSelected: (value) {
         context.read<SettingsBloc>().add(UpdateSnoozeMinutes(value));
       },
@@ -464,13 +470,14 @@ class _AlarmSoundDialogState extends State<_AlarmSoundDialog> {
 
   @override
   Widget build(BuildContext context) {
+    final t = S.of(context);
     return AlertDialog(
       backgroundColor: AppColors.surfaceDark,
-      title: const Row(
+      title: Row(
         children: [
-          Icon(Icons.music_note, color: AppColors.primary, size: 24),
-          SizedBox(width: 8),
-          Text('Alarm Sesi'),
+          const Icon(Icons.music_note, color: AppColors.primary, size: 24),
+          const SizedBox(width: 8),
+          Text(t.alarmSound),
         ],
       ),
       content: SizedBox(
@@ -479,10 +486,10 @@ class _AlarmSoundDialogState extends State<_AlarmSoundDialog> {
         child: _loading
             ? const Center(child: CircularProgressIndicator())
             : _ringtones.isEmpty
-                ? const Center(
+                ? Center(
                     child: Text(
-                      'Alarm sesi bulunamadı',
-                      style: TextStyle(color: AppColors.textHint),
+                      t.noAlarmSoundFound,
+                      style: const TextStyle(color: AppColors.textHint),
                     ),
                   )
                 : ListView.builder(
@@ -562,7 +569,7 @@ class _AlarmSoundDialogState extends State<_AlarmSoundDialog> {
             RingtoneService.stopPreview();
             Navigator.pop(context);
           },
-          child: const Text(AppStrings.cancel),
+          child: Text(t.cancel),
         ),
         ElevatedButton(
           onPressed: () {
@@ -573,7 +580,7 @@ class _AlarmSoundDialogState extends State<_AlarmSoundDialog> {
           style: ElevatedButton.styleFrom(
             backgroundColor: AppColors.primary,
           ),
-          child: const Text('Kaydet'),
+          child: Text(t.save),
         ),
       ],
     );
@@ -649,29 +656,29 @@ class _TimeRangeDialogState extends State<_TimeRangeDialog> {
 
   @override
   Widget build(BuildContext context) {
+    final t = S.of(context);
     return AlertDialog(
       backgroundColor: AppColors.surfaceDark,
-      title: const Row(
+      title: Row(
         children: [
-          Icon(Icons.schedule, color: AppColors.primary, size: 24),
-          SizedBox(width: 8),
-          Text('Çalışma Aralığı'),
+          const Icon(Icons.schedule, color: AppColors.primary, size: 24),
+          const SizedBox(width: 8),
+          Text(t.activeTimeRange),
         ],
       ),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Text(
-            'Otomatik uyku algılamanın aktif olacağı saat aralığını seçin. '
-            'Bu aralık dışında yeni algılama başlamaz, ancak zaten kurulmuş alarmlar etkilenmez.',
-            style: TextStyle(color: AppColors.textHint, fontSize: 13),
+          Text(
+            t.activeTimeRangeDialogDesc,
+            style: const TextStyle(color: AppColors.textHint, fontSize: 13),
           ),
           const SizedBox(height: 20),
           Row(
             children: [
               Expanded(
                 child: _timeButton(
-                  label: 'Başlangıç',
+                  label: t.startLabel,
                   time: _formatTime(_start),
                   onTap: () => _pickTime(true),
                 ),
@@ -682,7 +689,7 @@ class _TimeRangeDialogState extends State<_TimeRangeDialog> {
               ),
               Expanded(
                 child: _timeButton(
-                  label: 'Bitiş',
+                  label: t.endLabel,
                   time: _formatTime(_end),
                   onTap: () => _pickTime(false),
                 ),
@@ -694,7 +701,7 @@ class _TimeRangeDialogState extends State<_TimeRangeDialog> {
       actions: [
         TextButton(
           onPressed: () => Navigator.pop(context),
-          child: const Text(AppStrings.cancel),
+          child: Text(t.cancel),
         ),
         ElevatedButton(
           onPressed: () {
@@ -707,7 +714,7 @@ class _TimeRangeDialogState extends State<_TimeRangeDialog> {
             Navigator.pop(context);
           },
           style: ElevatedButton.styleFrom(backgroundColor: AppColors.primary),
-          child: const Text('Kaydet'),
+          child: Text(t.save),
         ),
       ],
     );
