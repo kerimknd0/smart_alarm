@@ -172,5 +172,97 @@
   "themeModeDesc": "Change application theme",
   "themeDark": "Dark",
   "themeLight": "Light",
-  "themeSystem": "System"
+  "themeSystem": "System",
+
+  "sleepAnalysis": "Sleep Analysis",
+  "sleepAnalysisTooltip": "Sleep Analysis",
+  "lastNight": "Last Night",
+  "thisWeek": "This Week",
+  "alerts": "Alerts",
+  "viewAllHistory": "View All History",
+  "noSleepRecordYet": "No Sleep Record Yet",
+  "noSleepRecordHint": "After using the alarm,\nyour sleep analysis will appear here.",
+  "viewDetails": "View details",
+  "sleepDurationLabel": "Duration",
+  "wakeCount": "Awakenings",
+  "efficiency": "Efficiency",
+  "avgScore": "Avg. Score",
+  "avgDuration": "Avg. Duration",
+  "recordCount": "Records",
+  "nightsUnit": "nights",
+  "timesUnit": "times",
+
+  "detailBedTime": "Bedtime",
+  "detailWakeTime": "Wake up",
+  "scoreDetail": "Score Details",
+  "scoreMotion": "Motion",
+  "scoreConsistency": "Consistency",
+  "scoreAlarmResponse": "Alarm Response",
+  "remCycles": "REM Cycles (Estimated)",
+  "noRemData": "Not enough data.",
+  "lightSleepWindow": "Light sleep window",
+  "nightWakeups": "Night Awakenings",
+  "screenTurnedOn": "Screen turned on",
+
+  "dayMon": "Mon",
+  "dayTue": "Tue",
+  "dayWed": "Wed",
+  "dayThu": "Thu",
+  "dayFri": "Fri",
+  "daySat": "Sat",
+  "daySun": "Sun",
+
+  "monthJan": "Jan",
+  "monthFeb": "Feb",
+  "monthMar": "Mar",
+  "monthApr": "Apr",
+  "monthMay": "May",
+  "monthJun": "Jun",
+  "monthJul": "Jul",
+  "monthAug": "Aug",
+  "monthSep": "Sep",
+  "monthOct": "Oct",
+  "monthNov": "Nov",
+  "monthDec": "Dec",
+
+  "anomalyInsufficientSleepTitle": "Insufficient Sleep",
+  "anomalyInsufficientSleepDesc": "You slept less than 5 hours for {count} consecutive nights. This may negatively affect your health.",
+  "@anomalyInsufficientSleepDesc": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "anomalyScoreDropTitle": "Sleep Quality Dropped",
+  "anomalyScoreDropDesc": "Last night's sleep score ({score}) is well below your 7-day average ({avg}).",
+  "@anomalyScoreDropDesc": {
+    "placeholders": {
+      "score": { "type": "int" },
+      "avg": { "type": "int" }
+    }
+  },
+  "anomalyFrequentWakingTitle": "Frequent Waking",
+  "anomalyFrequentWakingDesc": "You woke up 3 or more times on {count} nights in the past 7 nights.",
+  "@anomalyFrequentWakingDesc": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "anomalySocialJetLagTitle": "Social Jet Lag",
+  "anomalySocialJetLagDesc": "Your weekend average ({weekend}h) is more than 3 hours above weekdays. This may disrupt your biological clock.",
+  "@anomalySocialJetLagDesc": {
+    "placeholders": { "weekend": { "type": "String" } }
+  },
+  "anomalyBedtimeShiftTitle": "Irregular Bedtime",
+  "anomalyBedtimeShiftDesc": "Your bedtime varied by more than 2 hours in the last 7 days. Try to establish a consistent sleep routine.",
+  "anomalyExcessiveSnoozeTitle": "Too Much Snoozing",
+  "anomalyExcessiveSnoozeDesc": "You snoozed your alarm {count} times this morning. This may indicate poor sleep quality.",
+  "@anomalyExcessiveSnoozeDesc": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "anomalyStreakTitle": "7-Day Perfect Sleep! 🌟",
+  "anomalyStreakDesc": "Your sleep score has been above 80 for 7 nights in a row. You've built a great sleep routine!",
+  "anomalyImprovementTitle": "Sleep Quality Improved! 📈",
+  "anomalyImprovementDesc": "Your average score this week ({thisWeek}) has significantly improved compared to last week ({lastWeek}).",
+  "@anomalyImprovementDesc": {
+    "placeholders": {
+      "thisWeek": { "type": "int" },
+      "lastWeek": { "type": "int" }
+    }
+  }
 }

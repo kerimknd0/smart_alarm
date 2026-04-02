@@ -567,7 +567,7 @@ class _AlarmSoundDialogState extends State<_AlarmSoundDialog> {
   List<RingtoneItem> _ringtones = [];
   bool _loading = true;
   String _selectedUri = '';
-  String _selectedTitle = 'Varsayılan';
+  String _selectedTitle = '';
   String _playingUri = '';
 
   @override
@@ -715,7 +715,10 @@ class _AlarmSoundDialogState extends State<_AlarmSoundDialog> {
         ElevatedButton(
           onPressed: () {
             RingtoneService.stopPreview();
-            widget.onSelected(_selectedUri, _selectedTitle);
+            final title = _selectedTitle.isEmpty
+                ? S.of(context).defaultLabel
+                : _selectedTitle;
+            widget.onSelected(_selectedUri, title);
             Navigator.pop(context);
           },
           style: ElevatedButton.styleFrom(

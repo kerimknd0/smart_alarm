@@ -337,4 +337,208 @@ class STr extends S {
 
   @override
   String get themeSystem => 'Sistem';
+
+  @override
+  String get sleepAnalysis => 'Uyku Analizi';
+
+  @override
+  String get sleepAnalysisTooltip => 'Uyku Analizi';
+
+  @override
+  String get lastNight => 'Dün Gece';
+
+  @override
+  String get thisWeek => 'Bu Hafta';
+
+  @override
+  String get alerts => 'Uyarılar';
+
+  @override
+  String get viewAllHistory => 'Tüm Geçmişi Gör';
+
+  @override
+  String get noSleepRecordYet => 'Henüz Uyku Kaydı Yok';
+
+  @override
+  String get noSleepRecordHint =>
+      'Alarmı kullandıktan sonra\nuyku analizin burada görünecek.';
+
+  @override
+  String get viewDetails => 'Detayları gör';
+
+  @override
+  String get sleepDurationLabel => 'Süre';
+
+  @override
+  String get wakeCount => 'Uyanma';
+
+  @override
+  String get efficiency => 'Verimlilik';
+
+  @override
+  String get avgScore => 'Ort. Skor';
+
+  @override
+  String get avgDuration => 'Ort. Süre';
+
+  @override
+  String get recordCount => 'Kayıt';
+
+  @override
+  String get nightsUnit => 'gece';
+
+  @override
+  String get timesUnit => 'kez';
+
+  @override
+  String get detailBedTime => 'Yatış';
+
+  @override
+  String get detailWakeTime => 'Kalkış';
+
+  @override
+  String get scoreDetail => 'Skor Detayı';
+
+  @override
+  String get scoreMotion => 'Hareket';
+
+  @override
+  String get scoreConsistency => 'Tutarlılık';
+
+  @override
+  String get scoreAlarmResponse => 'Alarm Tepkisi';
+
+  @override
+  String get remCycles => 'REM Döngüleri (Tahmini)';
+
+  @override
+  String get noRemData => 'Yeterli veri yok.';
+
+  @override
+  String get lightSleepWindow => 'Hafif uyku penceresi';
+
+  @override
+  String get nightWakeups => 'Gece Uyanmaları';
+
+  @override
+  String get screenTurnedOn => 'Ekran açıldı';
+
+  @override
+  String get dayMon => 'Pzt';
+
+  @override
+  String get dayTue => 'Sal';
+
+  @override
+  String get dayWed => 'Çar';
+
+  @override
+  String get dayThu => 'Per';
+
+  @override
+  String get dayFri => 'Cum';
+
+  @override
+  String get daySat => 'Cmt';
+
+  @override
+  String get daySun => 'Paz';
+
+  @override
+  String get monthJan => 'Oca';
+
+  @override
+  String get monthFeb => 'Şub';
+
+  @override
+  String get monthMar => 'Mar';
+
+  @override
+  String get monthApr => 'Nis';
+
+  @override
+  String get monthMay => 'May';
+
+  @override
+  String get monthJun => 'Haz';
+
+  @override
+  String get monthJul => 'Tem';
+
+  @override
+  String get monthAug => 'Ağu';
+
+  @override
+  String get monthSep => 'Eyl';
+
+  @override
+  String get monthOct => 'Eki';
+
+  @override
+  String get monthNov => 'Kas';
+
+  @override
+  String get monthDec => 'Ara';
+
+  @override
+  String get anomalyInsufficientSleepTitle => 'Yetersiz Uyku';
+
+  @override
+  String anomalyInsufficientSleepDesc(int count) {
+    return 'Son $count gece 5 saatten az uyudunuz. Bu durum sağlığınızı olumsuz etkileyebilir.';
+  }
+
+  @override
+  String get anomalyScoreDropTitle => 'Uyku Kalitesi Düştü';
+
+  @override
+  String anomalyScoreDropDesc(int score, int avg) {
+    return 'Dünkü uyku skoru ($score), 7 günlük ortalamanızın ($avg) çok altında.';
+  }
+
+  @override
+  String get anomalyFrequentWakingTitle => 'Sık Uyanma';
+
+  @override
+  String anomalyFrequentWakingDesc(int count) {
+    return 'Son 7 gecede $count gece 3 veya daha fazla kez uyandınız.';
+  }
+
+  @override
+  String get anomalySocialJetLagTitle => 'Sosyal Jet Lag';
+
+  @override
+  String anomalySocialJetLagDesc(String weekend) {
+    return 'Hafta sonu ortalamanız (${weekend}s), hafta içinden 3 saatten fazla. Bu biyolojik saatinizi bozabilir.';
+  }
+
+  @override
+  String get anomalyBedtimeShiftTitle => 'Düzensiz Yatış Saati';
+
+  @override
+  String get anomalyBedtimeShiftDesc =>
+      'Son 7 günde yatış saatiniz 2 saatten fazla değişiyor. Düzenli bir uyku rutini oluşturmaya çalışın.';
+
+  @override
+  String get anomalyExcessiveSnoozeTitle => 'Fazla Erteleme';
+
+  @override
+  String anomalyExcessiveSnoozeDesc(int count) {
+    return 'Bu sabah alarmı $count kez ertelediniz. Bu, uyku kalitenizin düşük olduğuna işaret edebilir.';
+  }
+
+  @override
+  String get anomalyStreakTitle => '7 Günlük Mükemmel Uyku! 🌟';
+
+  @override
+  String get anomalyStreakDesc =>
+      'Son 7 gece uyku skorunuz 80\'in üzerinde. Harika bir uyku rutini kurmuşsunuz!';
+
+  @override
+  String get anomalyImprovementTitle => 'Uyku Kaliteniz Arttı! 📈';
+
+  @override
+  String anomalyImprovementDesc(int thisWeek, int lastWeek) {
+    return 'Bu haftaki ortalama skorunuz ($thisWeek), geçen haftaya ($lastWeek) göre önemli ölçüde arttı.';
+  }
 }

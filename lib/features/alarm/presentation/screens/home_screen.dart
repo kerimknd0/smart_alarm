@@ -184,6 +184,11 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
         title: Text(t.homeTitle),
         actions: [
           IconButton(
+            icon: const Icon(Icons.bedtime_outlined),
+            tooltip: t.sleepAnalysisTooltip,
+            onPressed: () => context.push('/sleep'),
+          ),
+          IconButton(
             icon: const Icon(Icons.settings),
             onPressed: () {
               context.push('/settings');

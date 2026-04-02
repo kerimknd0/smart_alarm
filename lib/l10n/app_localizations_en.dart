@@ -334,4 +334,208 @@ class SEn extends S {
 
   @override
   String get themeSystem => 'System';
+
+  @override
+  String get sleepAnalysis => 'Sleep Analysis';
+
+  @override
+  String get sleepAnalysisTooltip => 'Sleep Analysis';
+
+  @override
+  String get lastNight => 'Last Night';
+
+  @override
+  String get thisWeek => 'This Week';
+
+  @override
+  String get alerts => 'Alerts';
+
+  @override
+  String get viewAllHistory => 'View All History';
+
+  @override
+  String get noSleepRecordYet => 'No Sleep Record Yet';
+
+  @override
+  String get noSleepRecordHint =>
+      'After using the alarm,\nyour sleep analysis will appear here.';
+
+  @override
+  String get viewDetails => 'View details';
+
+  @override
+  String get sleepDurationLabel => 'Duration';
+
+  @override
+  String get wakeCount => 'Awakenings';
+
+  @override
+  String get efficiency => 'Efficiency';
+
+  @override
+  String get avgScore => 'Avg. Score';
+
+  @override
+  String get avgDuration => 'Avg. Duration';
+
+  @override
+  String get recordCount => 'Records';
+
+  @override
+  String get nightsUnit => 'nights';
+
+  @override
+  String get timesUnit => 'times';
+
+  @override
+  String get detailBedTime => 'Bedtime';
+
+  @override
+  String get detailWakeTime => 'Wake up';
+
+  @override
+  String get scoreDetail => 'Score Details';
+
+  @override
+  String get scoreMotion => 'Motion';
+
+  @override
+  String get scoreConsistency => 'Consistency';
+
+  @override
+  String get scoreAlarmResponse => 'Alarm Response';
+
+  @override
+  String get remCycles => 'REM Cycles (Estimated)';
+
+  @override
+  String get noRemData => 'Not enough data.';
+
+  @override
+  String get lightSleepWindow => 'Light sleep window';
+
+  @override
+  String get nightWakeups => 'Night Awakenings';
+
+  @override
+  String get screenTurnedOn => 'Screen turned on';
+
+  @override
+  String get dayMon => 'Mon';
+
+  @override
+  String get dayTue => 'Tue';
+
+  @override
+  String get dayWed => 'Wed';
+
+  @override
+  String get dayThu => 'Thu';
+
+  @override
+  String get dayFri => 'Fri';
+
+  @override
+  String get daySat => 'Sat';
+
+  @override
+  String get daySun => 'Sun';
+
+  @override
+  String get monthJan => 'Jan';
+
+  @override
+  String get monthFeb => 'Feb';
+
+  @override
+  String get monthMar => 'Mar';
+
+  @override
+  String get monthApr => 'Apr';
+
+  @override
+  String get monthMay => 'May';
+
+  @override
+  String get monthJun => 'Jun';
+
+  @override
+  String get monthJul => 'Jul';
+
+  @override
+  String get monthAug => 'Aug';
+
+  @override
+  String get monthSep => 'Sep';
+
+  @override
+  String get monthOct => 'Oct';
+
+  @override
+  String get monthNov => 'Nov';
+
+  @override
+  String get monthDec => 'Dec';
+
+  @override
+  String get anomalyInsufficientSleepTitle => 'Insufficient Sleep';
+
+  @override
+  String anomalyInsufficientSleepDesc(int count) {
+    return 'You slept less than 5 hours for $count consecutive nights. This may negatively affect your health.';
+  }
+
+  @override
+  String get anomalyScoreDropTitle => 'Sleep Quality Dropped';
+
+  @override
+  String anomalyScoreDropDesc(int score, int avg) {
+    return 'Last night\'s sleep score ($score) is well below your 7-day average ($avg).';
+  }
+
+  @override
+  String get anomalyFrequentWakingTitle => 'Frequent Waking';
+
+  @override
+  String anomalyFrequentWakingDesc(int count) {
+    return 'You woke up 3 or more times on $count nights in the past 7 nights.';
+  }
+
+  @override
+  String get anomalySocialJetLagTitle => 'Social Jet Lag';
+
+  @override
+  String anomalySocialJetLagDesc(String weekend) {
+    return 'Your weekend average (${weekend}h) is more than 3 hours above weekdays. This may disrupt your biological clock.';
+  }
+
+  @override
+  String get anomalyBedtimeShiftTitle => 'Irregular Bedtime';
+
+  @override
+  String get anomalyBedtimeShiftDesc =>
+      'Your bedtime varied by more than 2 hours in the last 7 days. Try to establish a consistent sleep routine.';
+
+  @override
+  String get anomalyExcessiveSnoozeTitle => 'Too Much Snoozing';
+
+  @override
+  String anomalyExcessiveSnoozeDesc(int count) {
+    return 'You snoozed your alarm $count times this morning. This may indicate poor sleep quality.';
+  }
+
+  @override
+  String get anomalyStreakTitle => '7-Day Perfect Sleep! 🌟';
+
+  @override
+  String get anomalyStreakDesc =>
+      'Your sleep score has been above 80 for 7 nights in a row. You\'ve built a great sleep routine!';
+
+  @override
+  String get anomalyImprovementTitle => 'Sleep Quality Improved! 📈';
+
+  @override
+  String anomalyImprovementDesc(int thisWeek, int lastWeek) {
+    return 'Your average score this week ($thisWeek) has significantly improved compared to last week ($lastWeek).';
+  }
 }

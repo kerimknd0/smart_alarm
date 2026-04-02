@@ -12,6 +12,14 @@ import 'features/alarm/domain/usecases/toggle_alarm.dart';
 import 'features/alarm/presentation/bloc/alarm_bloc.dart';
 import 'features/settings/data/repositories/settings_repository.dart';
 import 'features/settings/presentation/bloc/settings_bloc.dart';
+import 'features/sleep/data/datasources/sleep_database.dart';
+import 'features/sleep/data/repositories/sleep_repository_impl.dart';
+import 'features/sleep/domain/repositories/sleep_repository.dart';
+import 'features/sleep/domain/usecases/get_anomalies.dart';
+import 'features/sleep/domain/usecases/get_sleep_history.dart';
+import 'features/sleep/domain/usecases/get_weekly_stats.dart';
+import 'features/sleep/domain/usecases/save_sleep_record.dart';
+import 'features/sleep/presentation/bloc/sleep_bloc.dart';
 
 final sl = GetIt.instance;
 
@@ -25,17 +33,14 @@ Future<void> initDependencies() async {
   sl.registerLazySingleton(() => NotificationService());
   sl.registerLazySingleton(() => AlarmService());
 
-  // ── Repositories ──
+  // ── Alarm ──
   sl.registerLazySingleton<AlarmRepository>(() => AlarmRepositoryImpl(sl()));
   sl.registerLazySingleton(() => SettingsRepository(sl()));
-
-  // ── Use Cases ──
   sl.registerLazySingleton(() => GetAlarms(sl()));
   sl.registerLazySingleton(() => SetAlarm(sl()));
   sl.registerLazySingleton(() => CancelAlarm(sl()));
   sl.registerLazySingleton(() => ToggleAlarm(sl()));
 
-  // ── BLoCs ──
   sl.registerFactory(
     () => AlarmBloc(
       getAlarms: sl(),
@@ -45,6 +50,24 @@ Future<void> initDependencies() async {
       alarmService: sl(),
     ),
   );
-
   sl.registerFactory(() => SettingsBloc(repository: sl()));
+
+  // ── Sleep Analysis ──
+  sl.registerLazySingleton(() => SleepDatabase());
+  sl.registerLazySingleton<SleepRepository>(
+    () => SleepRepositoryImpl(sl()),
+  );
+  sl.registerLazySingleton(() => SaveSleepRecord(sl()));
+  sl.registerLazySingleton(() => GetSleepHistory(sl()));
+  sl.registerLazySingleton(() => GetWeeklyStats(sl()));
+  sl.registerLazySingleton(() => GetAnomalies(sl()));
+
+  sl.registerFactory(
+    () => SleepBloc(
+      getSleepHistory: sl(),
+      getWeeklyStats: sl(),
+      getAnomalies: sl(),
+      saveSleepRecord: sl(),
+    ),
+  );
 }

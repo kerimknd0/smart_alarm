@@ -6,9 +6,11 @@ import 'package:wakelock_plus/wakelock_plus.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/services/background_service.dart';
+import '../../../../core/services/sleep_record_saver.dart';
 import '../../../../core/utils/date_time_utils.dart';
 import '../../../../l10n/app_localizations.dart';
 import '../../../../main.dart' show isAlarmRingOpen;
+import '../../../sleep/domain/entities/sleep_record.dart';
 import '../../domain/entities/alarm.dart';
 import '../bloc/alarm_bloc.dart';
 import '../bloc/alarm_event.dart';
@@ -216,13 +218,20 @@ class _AlarmRingScreenState extends State<AlarmRingScreen>
   }
 
   void _dismissAlarm(BuildContext context) {
-    stopFiringAlarm(); // SharedPrefs temizle → AlarmSoundService sesi durdurur
+    stopFiringAlarm();
+    // Uyku kaydını oluştur ve kaydet
+    SleepRecordSaver.saveSleepRecord(
+      sleepEnd: DateTime.now(),
+      dismissType: DismissType.normal,
+    );
     context.read<AlarmBloc>().add(DismissAlarmEvent(widget.alarm.id));
     Navigator.of(context).pop();
   }
 
   void _snoozeAlarm(BuildContext context) {
-    stopFiringAlarm(); // SharedPrefs temizle → AlarmSoundService sesi durdurur
+    stopFiringAlarm();
+    // Snooze sayacını artır
+    SleepRecordSaver.incrementSnooze();
     context.read<AlarmBloc>().add(SnoozeAlarmEvent(widget.alarm));
     Navigator.of(context).pop();
   }

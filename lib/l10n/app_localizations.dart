@@ -696,6 +696,384 @@ abstract class S {
   /// In tr, this message translates to:
   /// **'Sistem'**
   String get themeSystem;
+
+  /// No description provided for @sleepAnalysis.
+  ///
+  /// In tr, this message translates to:
+  /// **'Uyku Analizi'**
+  String get sleepAnalysis;
+
+  /// No description provided for @sleepAnalysisTooltip.
+  ///
+  /// In tr, this message translates to:
+  /// **'Uyku Analizi'**
+  String get sleepAnalysisTooltip;
+
+  /// No description provided for @lastNight.
+  ///
+  /// In tr, this message translates to:
+  /// **'Dün Gece'**
+  String get lastNight;
+
+  /// No description provided for @thisWeek.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu Hafta'**
+  String get thisWeek;
+
+  /// No description provided for @alerts.
+  ///
+  /// In tr, this message translates to:
+  /// **'Uyarılar'**
+  String get alerts;
+
+  /// No description provided for @viewAllHistory.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tüm Geçmişi Gör'**
+  String get viewAllHistory;
+
+  /// No description provided for @noSleepRecordYet.
+  ///
+  /// In tr, this message translates to:
+  /// **'Henüz Uyku Kaydı Yok'**
+  String get noSleepRecordYet;
+
+  /// No description provided for @noSleepRecordHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'Alarmı kullandıktan sonra\nuyku analizin burada görünecek.'**
+  String get noSleepRecordHint;
+
+  /// No description provided for @viewDetails.
+  ///
+  /// In tr, this message translates to:
+  /// **'Detayları gör'**
+  String get viewDetails;
+
+  /// No description provided for @sleepDurationLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'Süre'**
+  String get sleepDurationLabel;
+
+  /// No description provided for @wakeCount.
+  ///
+  /// In tr, this message translates to:
+  /// **'Uyanma'**
+  String get wakeCount;
+
+  /// No description provided for @efficiency.
+  ///
+  /// In tr, this message translates to:
+  /// **'Verimlilik'**
+  String get efficiency;
+
+  /// No description provided for @avgScore.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ort. Skor'**
+  String get avgScore;
+
+  /// No description provided for @avgDuration.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ort. Süre'**
+  String get avgDuration;
+
+  /// No description provided for @recordCount.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kayıt'**
+  String get recordCount;
+
+  /// No description provided for @nightsUnit.
+  ///
+  /// In tr, this message translates to:
+  /// **'gece'**
+  String get nightsUnit;
+
+  /// No description provided for @timesUnit.
+  ///
+  /// In tr, this message translates to:
+  /// **'kez'**
+  String get timesUnit;
+
+  /// No description provided for @detailBedTime.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yatış'**
+  String get detailBedTime;
+
+  /// No description provided for @detailWakeTime.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kalkış'**
+  String get detailWakeTime;
+
+  /// No description provided for @scoreDetail.
+  ///
+  /// In tr, this message translates to:
+  /// **'Skor Detayı'**
+  String get scoreDetail;
+
+  /// No description provided for @scoreMotion.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hareket'**
+  String get scoreMotion;
+
+  /// No description provided for @scoreConsistency.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tutarlılık'**
+  String get scoreConsistency;
+
+  /// No description provided for @scoreAlarmResponse.
+  ///
+  /// In tr, this message translates to:
+  /// **'Alarm Tepkisi'**
+  String get scoreAlarmResponse;
+
+  /// No description provided for @remCycles.
+  ///
+  /// In tr, this message translates to:
+  /// **'REM Döngüleri (Tahmini)'**
+  String get remCycles;
+
+  /// No description provided for @noRemData.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yeterli veri yok.'**
+  String get noRemData;
+
+  /// No description provided for @lightSleepWindow.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hafif uyku penceresi'**
+  String get lightSleepWindow;
+
+  /// No description provided for @nightWakeups.
+  ///
+  /// In tr, this message translates to:
+  /// **'Gece Uyanmaları'**
+  String get nightWakeups;
+
+  /// No description provided for @screenTurnedOn.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ekran açıldı'**
+  String get screenTurnedOn;
+
+  /// No description provided for @dayMon.
+  ///
+  /// In tr, this message translates to:
+  /// **'Pzt'**
+  String get dayMon;
+
+  /// No description provided for @dayTue.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sal'**
+  String get dayTue;
+
+  /// No description provided for @dayWed.
+  ///
+  /// In tr, this message translates to:
+  /// **'Çar'**
+  String get dayWed;
+
+  /// No description provided for @dayThu.
+  ///
+  /// In tr, this message translates to:
+  /// **'Per'**
+  String get dayThu;
+
+  /// No description provided for @dayFri.
+  ///
+  /// In tr, this message translates to:
+  /// **'Cum'**
+  String get dayFri;
+
+  /// No description provided for @daySat.
+  ///
+  /// In tr, this message translates to:
+  /// **'Cmt'**
+  String get daySat;
+
+  /// No description provided for @daySun.
+  ///
+  /// In tr, this message translates to:
+  /// **'Paz'**
+  String get daySun;
+
+  /// No description provided for @monthJan.
+  ///
+  /// In tr, this message translates to:
+  /// **'Oca'**
+  String get monthJan;
+
+  /// No description provided for @monthFeb.
+  ///
+  /// In tr, this message translates to:
+  /// **'Şub'**
+  String get monthFeb;
+
+  /// No description provided for @monthMar.
+  ///
+  /// In tr, this message translates to:
+  /// **'Mar'**
+  String get monthMar;
+
+  /// No description provided for @monthApr.
+  ///
+  /// In tr, this message translates to:
+  /// **'Nis'**
+  String get monthApr;
+
+  /// No description provided for @monthMay.
+  ///
+  /// In tr, this message translates to:
+  /// **'May'**
+  String get monthMay;
+
+  /// No description provided for @monthJun.
+  ///
+  /// In tr, this message translates to:
+  /// **'Haz'**
+  String get monthJun;
+
+  /// No description provided for @monthJul.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tem'**
+  String get monthJul;
+
+  /// No description provided for @monthAug.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ağu'**
+  String get monthAug;
+
+  /// No description provided for @monthSep.
+  ///
+  /// In tr, this message translates to:
+  /// **'Eyl'**
+  String get monthSep;
+
+  /// No description provided for @monthOct.
+  ///
+  /// In tr, this message translates to:
+  /// **'Eki'**
+  String get monthOct;
+
+  /// No description provided for @monthNov.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kas'**
+  String get monthNov;
+
+  /// No description provided for @monthDec.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ara'**
+  String get monthDec;
+
+  /// No description provided for @anomalyInsufficientSleepTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yetersiz Uyku'**
+  String get anomalyInsufficientSleepTitle;
+
+  /// No description provided for @anomalyInsufficientSleepDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Son {count} gece 5 saatten az uyudunuz. Bu durum sağlığınızı olumsuz etkileyebilir.'**
+  String anomalyInsufficientSleepDesc(int count);
+
+  /// No description provided for @anomalyScoreDropTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Uyku Kalitesi Düştü'**
+  String get anomalyScoreDropTitle;
+
+  /// No description provided for @anomalyScoreDropDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Dünkü uyku skoru ({score}), 7 günlük ortalamanızın ({avg}) çok altında.'**
+  String anomalyScoreDropDesc(int score, int avg);
+
+  /// No description provided for @anomalyFrequentWakingTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sık Uyanma'**
+  String get anomalyFrequentWakingTitle;
+
+  /// No description provided for @anomalyFrequentWakingDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Son 7 gecede {count} gece 3 veya daha fazla kez uyandınız.'**
+  String anomalyFrequentWakingDesc(int count);
+
+  /// No description provided for @anomalySocialJetLagTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sosyal Jet Lag'**
+  String get anomalySocialJetLagTitle;
+
+  /// No description provided for @anomalySocialJetLagDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hafta sonu ortalamanız ({weekend}s), hafta içinden 3 saatten fazla. Bu biyolojik saatinizi bozabilir.'**
+  String anomalySocialJetLagDesc(String weekend);
+
+  /// No description provided for @anomalyBedtimeShiftTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Düzensiz Yatış Saati'**
+  String get anomalyBedtimeShiftTitle;
+
+  /// No description provided for @anomalyBedtimeShiftDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Son 7 günde yatış saatiniz 2 saatten fazla değişiyor. Düzenli bir uyku rutini oluşturmaya çalışın.'**
+  String get anomalyBedtimeShiftDesc;
+
+  /// No description provided for @anomalyExcessiveSnoozeTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Fazla Erteleme'**
+  String get anomalyExcessiveSnoozeTitle;
+
+  /// No description provided for @anomalyExcessiveSnoozeDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu sabah alarmı {count} kez ertelediniz. Bu, uyku kalitenizin düşük olduğuna işaret edebilir.'**
+  String anomalyExcessiveSnoozeDesc(int count);
+
+  /// No description provided for @anomalyStreakTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'7 Günlük Mükemmel Uyku! 🌟'**
+  String get anomalyStreakTitle;
+
+  /// No description provided for @anomalyStreakDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Son 7 gece uyku skorunuz 80\'in üzerinde. Harika bir uyku rutini kurmuşsunuz!'**
+  String get anomalyStreakDesc;
+
+  /// No description provided for @anomalyImprovementTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Uyku Kaliteniz Arttı! 📈'**
+  String get anomalyImprovementTitle;
+
+  /// No description provided for @anomalyImprovementDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu haftaki ortalama skorunuz ({thisWeek}), geçen haftaya ({lastWeek}) göre önemli ölçüde arttı.'**
+  String anomalyImprovementDesc(int thisWeek, int lastWeek);
 }
 
 class _SDelegate extends LocalizationsDelegate<S> {

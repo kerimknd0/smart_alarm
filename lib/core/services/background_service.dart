@@ -14,6 +14,7 @@ import 'package:uuid/uuid.dart';
 import '../../features/alarm/data/models/alarm_model.dart';
 import '../../features/alarm/domain/entities/alarm.dart';
 import '../constants/app_constants.dart';
+import 'sleep_record_saver.dart';
 
 // ══════════════════════════════════════════════════════════════
 // SABİTLER
@@ -125,6 +126,10 @@ Future<void> notifyScreenOn() async {
   await prefs.setString(_kScreenState, 'on');
   await prefs.remove(_kScreenOffTime);
   await prefs.setString(_kLastInteraction, DateTime.now().toIso8601String());
+  // Gece uyanma zamanını uyku kaydı için sakla
+  if (prefs.getBool(_kSleepDetected) ?? false) {
+    await SleepRecordSaver.recordScreenOn(DateTime.now());
+  }
 }
 
 /// App arka plana gitti.
@@ -400,6 +405,8 @@ void onStart(ServiceInstance service) async {
         Duration(seconds: inactiveSeconds),
       );
       await _createAutoAlarm(prefs, sleepStart);
+      // Uyku kaydı için başlangıç zamanını sakla
+      await SleepRecordSaver.recordSleepStart(sleepStart);
       _updateFg(notif, '😴 Uyku algılandı — alarm kuruldu');
     } else {
       final m = remaining ~/ 60;

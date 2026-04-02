@@ -16,6 +16,8 @@ import 'features/alarm/presentation/bloc/alarm_bloc.dart';
 import 'features/settings/presentation/bloc/settings_bloc.dart';
 import 'features/settings/presentation/bloc/settings_event.dart';
 import 'features/settings/presentation/bloc/settings_state.dart';
+import 'features/sleep/presentation/bloc/sleep_bloc.dart';
+import 'features/sleep/presentation/bloc/sleep_event.dart';
 import 'injection_container.dart';
 import 'l10n/app_localizations.dart';
 
@@ -95,6 +97,9 @@ class SmartAlarmApp extends StatelessWidget {
         BlocProvider<AlarmBloc>(create: (_) => sl<AlarmBloc>()),
         BlocProvider<SettingsBloc>(
           create: (_) => sl<SettingsBloc>()..add(LoadSettings()),
+        ),
+        BlocProvider<SleepBloc>(
+          create: (_) => sl<SleepBloc>()..add(const LoadSleepDashboard()),
         ),
       ],
       child: BlocBuilder<SettingsBloc, SettingsState>(

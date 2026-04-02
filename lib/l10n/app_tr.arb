@@ -172,5 +172,97 @@
   "themeModeDesc": "Uygulama temasını değiştir",
   "themeDark": "Koyu",
   "themeLight": "Açık",
-  "themeSystem": "Sistem"
+  "themeSystem": "Sistem",
+
+  "sleepAnalysis": "Uyku Analizi",
+  "sleepAnalysisTooltip": "Uyku Analizi",
+  "lastNight": "Dün Gece",
+  "thisWeek": "Bu Hafta",
+  "alerts": "Uyarılar",
+  "viewAllHistory": "Tüm Geçmişi Gör",
+  "noSleepRecordYet": "Henüz Uyku Kaydı Yok",
+  "noSleepRecordHint": "Alarmı kullandıktan sonra\nuyku analizin burada görünecek.",
+  "viewDetails": "Detayları gör",
+  "sleepDurationLabel": "Süre",
+  "wakeCount": "Uyanma",
+  "efficiency": "Verimlilik",
+  "avgScore": "Ort. Skor",
+  "avgDuration": "Ort. Süre",
+  "recordCount": "Kayıt",
+  "nightsUnit": "gece",
+  "timesUnit": "kez",
+
+  "detailBedTime": "Yatış",
+  "detailWakeTime": "Kalkış",
+  "scoreDetail": "Skor Detayı",
+  "scoreMotion": "Hareket",
+  "scoreConsistency": "Tutarlılık",
+  "scoreAlarmResponse": "Alarm Tepkisi",
+  "remCycles": "REM Döngüleri (Tahmini)",
+  "noRemData": "Yeterli veri yok.",
+  "lightSleepWindow": "Hafif uyku penceresi",
+  "nightWakeups": "Gece Uyanmaları",
+  "screenTurnedOn": "Ekran açıldı",
+
+  "dayMon": "Pzt",
+  "dayTue": "Sal",
+  "dayWed": "Çar",
+  "dayThu": "Per",
+  "dayFri": "Cum",
+  "daySat": "Cmt",
+  "daySun": "Paz",
+
+  "monthJan": "Oca",
+  "monthFeb": "Şub",
+  "monthMar": "Mar",
+  "monthApr": "Nis",
+  "monthMay": "May",
+  "monthJun": "Haz",
+  "monthJul": "Tem",
+  "monthAug": "Ağu",
+  "monthSep": "Eyl",
+  "monthOct": "Eki",
+  "monthNov": "Kas",
+  "monthDec": "Ara",
+
+  "anomalyInsufficientSleepTitle": "Yetersiz Uyku",
+  "anomalyInsufficientSleepDesc": "Son {count} gece 5 saatten az uyudunuz. Bu durum sağlığınızı olumsuz etkileyebilir.",
+  "@anomalyInsufficientSleepDesc": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "anomalyScoreDropTitle": "Uyku Kalitesi Düştü",
+  "anomalyScoreDropDesc": "Dünkü uyku skoru ({score}), 7 günlük ortalamanızın ({avg}) çok altında.",
+  "@anomalyScoreDropDesc": {
+    "placeholders": {
+      "score": { "type": "int" },
+      "avg": { "type": "int" }
+    }
+  },
+  "anomalyFrequentWakingTitle": "Sık Uyanma",
+  "anomalyFrequentWakingDesc": "Son 7 gecede {count} gece 3 veya daha fazla kez uyandınız.",
+  "@anomalyFrequentWakingDesc": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "anomalySocialJetLagTitle": "Sosyal Jet Lag",
+  "anomalySocialJetLagDesc": "Hafta sonu ortalamanız ({weekend}s), hafta içinden 3 saatten fazla. Bu biyolojik saatinizi bozabilir.",
+  "@anomalySocialJetLagDesc": {
+    "placeholders": { "weekend": { "type": "String" } }
+  },
+  "anomalyBedtimeShiftTitle": "Düzensiz Yatış Saati",
+  "anomalyBedtimeShiftDesc": "Son 7 günde yatış saatiniz 2 saatten fazla değişiyor. Düzenli bir uyku rutini oluşturmaya çalışın.",
+  "anomalyExcessiveSnoozeTitle": "Fazla Erteleme",
+  "anomalyExcessiveSnoozeDesc": "Bu sabah alarmı {count} kez ertelediniz. Bu, uyku kalitenizin düşük olduğuna işaret edebilir.",
+  "@anomalyExcessiveSnoozeDesc": {
+    "placeholders": { "count": { "type": "int" } }
+  },
+  "anomalyStreakTitle": "7 Günlük Mükemmel Uyku! 🌟",
+  "anomalyStreakDesc": "Son 7 gece uyku skorunuz 80'in üzerinde. Harika bir uyku rutini kurmuşsunuz!",
+  "anomalyImprovementTitle": "Uyku Kaliteniz Arttı! 📈",
+  "anomalyImprovementDesc": "Bu haftaki ortalama skorunuz ({thisWeek}), geçen haftaya ({lastWeek}) göre önemli ölçüde arttı.",
+  "@anomalyImprovementDesc": {
+    "placeholders": {
+      "thisWeek": { "type": "int" },
+      "lastWeek": { "type": "int" }
+    }
+  }
 }
