@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../l10n/app_localizations.dart';
@@ -25,6 +26,11 @@ class SleepDashboardScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(t.sleepAnalysis),
         actions: [
+          IconButton(
+            icon: const Icon(Icons.psychology),
+            tooltip: t.coachEntryButton,
+            onPressed: () => context.push('/coach'),
+          ),
           IconButton(
             icon: const Icon(Icons.refresh),
             onPressed: () =>

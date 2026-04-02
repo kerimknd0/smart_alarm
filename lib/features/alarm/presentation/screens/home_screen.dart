@@ -269,6 +269,14 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
           ),
         ),
 
+        // AI Uyku Koçu giriş kartı
+        SliverToBoxAdapter(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+            child: _AiCoachBannerCard(),
+          ),
+        ),
+
         // Alarm listesi başlığı
         SliverToBoxAdapter(
           child: Padding(
@@ -527,6 +535,83 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+/// Ana sayfada AI Uyku Koçu'na yönlendiren belirgin banner kart.
+class _AiCoachBannerCard extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final t = S.of(context);
+    final theme = Theme.of(context);
+
+    return Card(
+      clipBehavior: Clip.antiAlias,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      elevation: 0,
+      child: InkWell(
+        onTap: () => context.push('/coach'),
+        child: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                theme.colorScheme.primary,
+                theme.colorScheme.tertiary.withValues(alpha: 0.85),
+              ],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+          ),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+          child: Row(
+            children: [
+              // Sol: ikon + metin
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        const Icon(Icons.psychology,
+                            color: Colors.white, size: 22),
+                        const SizedBox(width: 8),
+                        Text(
+                          t.coachTitle,
+                          style: theme.textTheme.titleMedium?.copyWith(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      t.coachSubtitle,
+                      style: theme.textTheme.bodySmall?.copyWith(
+                        color: Colors.white.withValues(alpha: 0.85),
+                      ),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(width: 12),
+              // Sağ: ok ikonu
+              Container(
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: Colors.white.withValues(alpha: 0.2),
+                  shape: BoxShape.circle,
+                ),
+                child: const Icon(Icons.arrow_forward,
+                    color: Colors.white, size: 20),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

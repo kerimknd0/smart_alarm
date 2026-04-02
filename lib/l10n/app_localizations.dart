@@ -1074,6 +1074,420 @@ abstract class S {
   /// In tr, this message translates to:
   /// **'Bu haftaki ortalama skorunuz ({thisWeek}), geçen haftaya ({lastWeek}) göre önemli ölçüde arttı.'**
   String anomalyImprovementDesc(int thisWeek, int lastWeek);
+
+  /// No description provided for @coachTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'AI Uyku Koçu'**
+  String get coachTitle;
+
+  /// No description provided for @coachSubtitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Uyku verilerinize dayalı kişiselleştirilmiş öneriler'**
+  String get coachSubtitle;
+
+  /// No description provided for @coachNoData.
+  ///
+  /// In tr, this message translates to:
+  /// **'Henüz uyku verisi yok'**
+  String get coachNoData;
+
+  /// No description provided for @coachNoDataHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kişiselleştirilmiş öneriler almak için uyku takibine başlayın.'**
+  String get coachNoDataHint;
+
+  /// No description provided for @sleepGoalTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Uyku Hedefi'**
+  String get sleepGoalTitle;
+
+  /// No description provided for @setGoal.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hedef Belirle'**
+  String get setGoal;
+
+  /// No description provided for @editGoal.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hedefi Düzenle'**
+  String get editGoal;
+
+  /// No description provided for @yourGoal.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hedefiniz'**
+  String get yourGoal;
+
+  /// No description provided for @goalNotSet.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hedef belirlenmedi'**
+  String get goalNotSet;
+
+  /// No description provided for @goalProgress.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hedef İlerleme'**
+  String get goalProgress;
+
+  /// No description provided for @daysAchievedLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'{achieved} / {total} gece'**
+  String daysAchievedLabel(int achieved, int total);
+
+  /// No description provided for @currentStreakLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'{streak} gece serisi'**
+  String currentStreakLabel(int streak);
+
+  /// No description provided for @sleepDebtTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Uyku Borcu'**
+  String get sleepDebtTitle;
+
+  /// No description provided for @sleepDebtValue.
+  ///
+  /// In tr, this message translates to:
+  /// **'{hours} saat borç'**
+  String sleepDebtValue(String hours);
+
+  /// No description provided for @noDebt.
+  ///
+  /// In tr, this message translates to:
+  /// **'Borç yok 🎉'**
+  String get noDebt;
+
+  /// No description provided for @debtRecovery.
+  ///
+  /// In tr, this message translates to:
+  /// **'Telafi için ~{days} gece'**
+  String debtRecovery(int days);
+
+  /// No description provided for @targetDuration.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hedef Süre'**
+  String get targetDuration;
+
+  /// No description provided for @targetBedtime.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hedef Yatış Saati'**
+  String get targetBedtime;
+
+  /// No description provided for @targetWakeTime.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hedef Uyanış Saati'**
+  String get targetWakeTime;
+
+  /// No description provided for @targetScore.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hedef Skor'**
+  String get targetScore;
+
+  /// No description provided for @notSet.
+  ///
+  /// In tr, this message translates to:
+  /// **'Belirtilmedi'**
+  String get notSet;
+
+  /// No description provided for @hoursMinutesLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'{h}s {m}dk'**
+  String hoursMinutesLabel(int h, int m);
+
+  /// No description provided for @advicesTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Öneriler'**
+  String get advicesTitle;
+
+  /// No description provided for @noAdvices.
+  ///
+  /// In tr, this message translates to:
+  /// **'Öneri yok'**
+  String get noAdvices;
+
+  /// No description provided for @noAdvicesHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'Uykunuz harika görünüyor! Böyle devam edin.'**
+  String get noAdvicesHint;
+
+  /// No description provided for @advicePriorityHigh.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yüksek'**
+  String get advicePriorityHigh;
+
+  /// No description provided for @advicePriorityMedium.
+  ///
+  /// In tr, this message translates to:
+  /// **'Orta'**
+  String get advicePriorityMedium;
+
+  /// No description provided for @advicePriorityLow.
+  ///
+  /// In tr, this message translates to:
+  /// **'Düşük'**
+  String get advicePriorityLow;
+
+  /// No description provided for @adviceCategoryDuration.
+  ///
+  /// In tr, this message translates to:
+  /// **'Süre'**
+  String get adviceCategoryDuration;
+
+  /// No description provided for @adviceCategoryQuality.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kalite'**
+  String get adviceCategoryQuality;
+
+  /// No description provided for @adviceCategoryConsistency.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tutarlılık'**
+  String get adviceCategoryConsistency;
+
+  /// No description provided for @adviceCategoryHabit.
+  ///
+  /// In tr, this message translates to:
+  /// **'Alışkanlık'**
+  String get adviceCategoryHabit;
+
+  /// No description provided for @adviceCategoryAchievement.
+  ///
+  /// In tr, this message translates to:
+  /// **'Başarı'**
+  String get adviceCategoryAchievement;
+
+  /// No description provided for @adviceBedtimeTooLateTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Geç Yatış'**
+  String get adviceBedtimeTooLateTitle;
+
+  /// No description provided for @adviceBedtimeTooLateDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hedefinizden {diffMinutes} dakika geç yatıyorsunuz ({targetBedtime}). Bu gece {targetBedtime}\'de yatmayı deneyin.'**
+  String adviceBedtimeTooLateDesc(int diffMinutes, String targetBedtime);
+
+  /// No description provided for @adviceBedtimeTooEarlyTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Erken Yatış'**
+  String get adviceBedtimeTooEarlyTitle;
+
+  /// No description provided for @adviceBedtimeTooEarlyDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hedefinizden erken yatıyorsunuz. Ortalama: {avgBedtime}, Hedef: {targetBedtime}.'**
+  String adviceBedtimeTooEarlyDesc(String avgBedtime, String targetBedtime);
+
+  /// No description provided for @adviceSleepDurationShortTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yetersiz Uyku'**
+  String get adviceSleepDurationShortTitle;
+
+  /// No description provided for @adviceSleepDurationShortDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hedefinizden {shortfallMinutes} dakika az uyuyorsunuz. {shortfallMinutes} dakika erken yatmayı deneyin.'**
+  String adviceSleepDurationShortDesc(int shortfallMinutes);
+
+  /// No description provided for @adviceSleepDurationLongTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Aşırı Uyku'**
+  String get adviceSleepDurationLongTitle;
+
+  /// No description provided for @adviceSleepDurationLongDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Optimal süreden {excessMinutes} dakika fazla uyuyorsunuz. Düzenli uyanış saati enerji seviyenizi artırır.'**
+  String adviceSleepDurationLongDesc(int excessMinutes);
+
+  /// No description provided for @adviceReduceSnoozeTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Erteleme Bağımlılığı'**
+  String get adviceReduceSnoozeTitle;
+
+  /// No description provided for @adviceReduceSnoozeDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Geceleri ortalama {avgSnooze} kez alarm erteliyorsunuz. Parçalı uyku, uyku kalitesini düşürür.'**
+  String adviceReduceSnoozeDesc(String avgSnooze);
+
+  /// No description provided for @adviceReduceWakeupsTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sık Gece Uyanması'**
+  String get adviceReduceWakeupsTitle;
+
+  /// No description provided for @adviceReduceWakeupsDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Geceleri ortalama {avgWakeCount} kez uyanıyorsunuz. Uyumadan önce ekran ve kafein tüketimini azaltın.'**
+  String adviceReduceWakeupsDesc(String avgWakeCount);
+
+  /// No description provided for @adviceImproveEfficiencyTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Düşük Uyku Verimliliği'**
+  String get adviceImproveEfficiencyTitle;
+
+  /// No description provided for @adviceImproveEfficiencyDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Uyku verimliliğiniz %{avgEfficiency}. Uyumadan önce ekran kullanımından kaçınmak yardımcı olabilir.'**
+  String adviceImproveEfficiencyDesc(int avgEfficiency);
+
+  /// No description provided for @adviceInconsistentBedtimeTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Düzensiz Uyku Saati'**
+  String get adviceInconsistentBedtimeTitle;
+
+  /// No description provided for @adviceInconsistentBedtimeDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yatış saatiniz {varianceMinutes} dakika değişkenlik gösteriyor. Tutarlı uyku saatleri sirkadiyen ritminizi destekler.'**
+  String adviceInconsistentBedtimeDesc(int varianceMinutes);
+
+  /// No description provided for @adviceSocialJetLagTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sosyal Jet Lag Uyarısı'**
+  String get adviceSocialJetLagTitle;
+
+  /// No description provided for @adviceSocialJetLagDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hafta içi ve hafta sonu yatış saatleriniz arasında {diffMinutes} dakika fark var. Bu sirkadiyen ritminizi bozuyor.'**
+  String adviceSocialJetLagDesc(int diffMinutes);
+
+  /// No description provided for @adviceSleepDebtTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Uyku Borcu Birikyor'**
+  String get adviceSleepDebtTitle;
+
+  /// No description provided for @adviceSleepDebtDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Son 7 günde {debtHours} saat uyku borcu biriktirdiniz. Daha erken yatmayı deneyin.'**
+  String adviceSleepDebtDesc(String debtHours);
+
+  /// No description provided for @adviceGreatStreakTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Muhteşem Seri! 🏆'**
+  String get adviceGreatStreakTitle;
+
+  /// No description provided for @adviceGreatStreakDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'{streak} gece üst üste uyku hedefinizi tutturdunuz. Böyle devam edin!'**
+  String adviceGreatStreakDesc(int streak);
+
+  /// No description provided for @adviceGoalAchievedTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hedefe Ulaşıldı! ✅'**
+  String get adviceGoalAchievedTitle;
+
+  /// No description provided for @adviceGoalAchievedDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Dün gece uyku hedefinizi tutturdunuz. Harika iş!'**
+  String get adviceGoalAchievedDesc;
+
+  /// No description provided for @advicePersonalBestTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Kişisel Rekor! 🌟'**
+  String get advicePersonalBestTitle;
+
+  /// No description provided for @advicePersonalBestDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Dün gece şimdiye kadarki en iyi uyku kalitenizdi. Bunu sürdürün!'**
+  String get advicePersonalBestDesc;
+
+  /// No description provided for @adviceImprovingTrendTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Gelişen Trend! 📈'**
+  String get adviceImprovingTrendTitle;
+
+  /// No description provided for @adviceImprovingTrendDesc.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu hafta ortalama skorunuz {oldAvg}\'den {newAvg}\'ye yükseldi. Harika ilerleme!'**
+  String adviceImprovingTrendDesc(int oldAvg, int newAvg);
+
+  /// No description provided for @saveGoalButton.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hedefi Kaydet'**
+  String get saveGoalButton;
+
+  /// No description provided for @durationSliderLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'Uyku Süresi'**
+  String get durationSliderLabel;
+
+  /// No description provided for @bedtimePickerLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yatış Saati'**
+  String get bedtimePickerLabel;
+
+  /// No description provided for @wakeTimePickerLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'Uyanış Saati'**
+  String get wakeTimePickerLabel;
+
+  /// No description provided for @scoreSliderLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hedef Skor'**
+  String get scoreSliderLabel;
+
+  /// No description provided for @goalSavedMessage.
+  ///
+  /// In tr, this message translates to:
+  /// **'Hedef kaydedildi!'**
+  String get goalSavedMessage;
+
+  /// No description provided for @coachEntryButton.
+  ///
+  /// In tr, this message translates to:
+  /// **'AI Koç'**
+  String get coachEntryButton;
+
+  /// No description provided for @completionRateLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'%{rate} başarı oranı'**
+  String completionRateLabel(int rate);
 }
 
 class _SDelegate extends LocalizationsDelegate<S> {

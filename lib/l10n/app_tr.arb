@@ -264,5 +264,144 @@
       "thisWeek": { "type": "int" },
       "lastWeek": { "type": "int" }
     }
+  },
+
+  "coachTitle": "AI Uyku Koçu",
+  "coachSubtitle": "Uyku verilerinize dayalı kişiselleştirilmiş öneriler",
+  "coachNoData": "Henüz uyku verisi yok",
+  "coachNoDataHint": "Kişiselleştirilmiş öneriler almak için uyku takibine başlayın.",
+  "sleepGoalTitle": "Uyku Hedefi",
+  "setGoal": "Hedef Belirle",
+  "editGoal": "Hedefi Düzenle",
+  "yourGoal": "Hedefiniz",
+  "goalNotSet": "Hedef belirlenmedi",
+  "goalProgress": "Hedef İlerleme",
+  "daysAchievedLabel": "{achieved} / {total} gece",
+  "@daysAchievedLabel": {
+    "placeholders": {
+      "achieved": { "type": "int" },
+      "total": { "type": "int" }
+    }
+  },
+  "currentStreakLabel": "{streak} gece serisi",
+  "@currentStreakLabel": {
+    "placeholders": { "streak": { "type": "int" } }
+  },
+  "sleepDebtTitle": "Uyku Borcu",
+  "sleepDebtValue": "{hours} saat borç",
+  "@sleepDebtValue": {
+    "placeholders": { "hours": { "type": "String" } }
+  },
+  "noDebt": "Borç yok 🎉",
+  "debtRecovery": "Telafi için ~{days} gece",
+  "@debtRecovery": {
+    "placeholders": { "days": { "type": "int" } }
+  },
+  "targetDuration": "Hedef Süre",
+  "targetBedtime": "Hedef Yatış Saati",
+  "targetWakeTime": "Hedef Uyanış Saati",
+  "targetScore": "Hedef Skor",
+  "notSet": "Belirtilmedi",
+  "hoursMinutesLabel": "{h}s {m}dk",
+  "@hoursMinutesLabel": {
+    "placeholders": {
+      "h": { "type": "int" },
+      "m": { "type": "int" }
+    }
+  },
+  "advicesTitle": "Öneriler",
+  "noAdvices": "Öneri yok",
+  "noAdvicesHint": "Uykunuz harika görünüyor! Böyle devam edin.",
+  "advicePriorityHigh": "Yüksek",
+  "advicePriorityMedium": "Orta",
+  "advicePriorityLow": "Düşük",
+  "adviceCategoryDuration": "Süre",
+  "adviceCategoryQuality": "Kalite",
+  "adviceCategoryConsistency": "Tutarlılık",
+  "adviceCategoryHabit": "Alışkanlık",
+  "adviceCategoryAchievement": "Başarı",
+  "adviceBedtimeTooLateTitle": "Geç Yatış",
+  "adviceBedtimeTooLateDesc": "Hedefinizden {diffMinutes} dakika geç yatıyorsunuz ({targetBedtime}). Bu gece {targetBedtime}'de yatmayı deneyin.",
+  "@adviceBedtimeTooLateDesc": {
+    "placeholders": {
+      "diffMinutes": { "type": "int" },
+      "targetBedtime": { "type": "String" }
+    }
+  },
+  "adviceBedtimeTooEarlyTitle": "Erken Yatış",
+  "adviceBedtimeTooEarlyDesc": "Hedefinizden erken yatıyorsunuz. Ortalama: {avgBedtime}, Hedef: {targetBedtime}.",
+  "@adviceBedtimeTooEarlyDesc": {
+    "placeholders": {
+      "avgBedtime": { "type": "String" },
+      "targetBedtime": { "type": "String" }
+    }
+  },
+  "adviceSleepDurationShortTitle": "Yetersiz Uyku",
+  "adviceSleepDurationShortDesc": "Hedefinizden {shortfallMinutes} dakika az uyuyorsunuz. {shortfallMinutes} dakika erken yatmayı deneyin.",
+  "@adviceSleepDurationShortDesc": {
+    "placeholders": { "shortfallMinutes": { "type": "int" } }
+  },
+  "adviceSleepDurationLongTitle": "Aşırı Uyku",
+  "adviceSleepDurationLongDesc": "Optimal süreden {excessMinutes} dakika fazla uyuyorsunuz. Düzenli uyanış saati enerji seviyenizi artırır.",
+  "@adviceSleepDurationLongDesc": {
+    "placeholders": { "excessMinutes": { "type": "int" } }
+  },
+  "adviceReduceSnoozeTitle": "Erteleme Bağımlılığı",
+  "adviceReduceSnoozeDesc": "Geceleri ortalama {avgSnooze} kez alarm erteliyorsunuz. Parçalı uyku, uyku kalitesini düşürür.",
+  "@adviceReduceSnoozeDesc": {
+    "placeholders": { "avgSnooze": { "type": "String" } }
+  },
+  "adviceReduceWakeupsTitle": "Sık Gece Uyanması",
+  "adviceReduceWakeupsDesc": "Geceleri ortalama {avgWakeCount} kez uyanıyorsunuz. Uyumadan önce ekran ve kafein tüketimini azaltın.",
+  "@adviceReduceWakeupsDesc": {
+    "placeholders": { "avgWakeCount": { "type": "String" } }
+  },
+  "adviceImproveEfficiencyTitle": "Düşük Uyku Verimliliği",
+  "adviceImproveEfficiencyDesc": "Uyku verimliliğiniz %{avgEfficiency}. Uyumadan önce ekran kullanımından kaçınmak yardımcı olabilir.",
+  "@adviceImproveEfficiencyDesc": {
+    "placeholders": { "avgEfficiency": { "type": "int" } }
+  },
+  "adviceInconsistentBedtimeTitle": "Düzensiz Uyku Saati",
+  "adviceInconsistentBedtimeDesc": "Yatış saatiniz {varianceMinutes} dakika değişkenlik gösteriyor. Tutarlı uyku saatleri sirkadiyen ritminizi destekler.",
+  "@adviceInconsistentBedtimeDesc": {
+    "placeholders": { "varianceMinutes": { "type": "int" } }
+  },
+  "adviceSocialJetLagTitle": "Sosyal Jet Lag Uyarısı",
+  "adviceSocialJetLagDesc": "Hafta içi ve hafta sonu yatış saatleriniz arasında {diffMinutes} dakika fark var. Bu sirkadiyen ritminizi bozuyor.",
+  "@adviceSocialJetLagDesc": {
+    "placeholders": { "diffMinutes": { "type": "int" } }
+  },
+  "adviceSleepDebtTitle": "Uyku Borcu Birikyor",
+  "adviceSleepDebtDesc": "Son 7 günde {debtHours} saat uyku borcu biriktirdiniz. Daha erken yatmayı deneyin.",
+  "@adviceSleepDebtDesc": {
+    "placeholders": { "debtHours": { "type": "String" } }
+  },
+  "adviceGreatStreakTitle": "Muhteşem Seri! 🏆",
+  "adviceGreatStreakDesc": "{streak} gece üst üste uyku hedefinizi tutturdunuz. Böyle devam edin!",
+  "@adviceGreatStreakDesc": {
+    "placeholders": { "streak": { "type": "int" } }
+  },
+  "adviceGoalAchievedTitle": "Hedefe Ulaşıldı! ✅",
+  "adviceGoalAchievedDesc": "Dün gece uyku hedefinizi tutturdunuz. Harika iş!",
+  "advicePersonalBestTitle": "Kişisel Rekor! 🌟",
+  "advicePersonalBestDesc": "Dün gece şimdiye kadarki en iyi uyku kalitenizdi. Bunu sürdürün!",
+  "adviceImprovingTrendTitle": "Gelişen Trend! 📈",
+  "adviceImprovingTrendDesc": "Bu hafta ortalama skorunuz {oldAvg}'den {newAvg}'ye yükseldi. Harika ilerleme!",
+  "@adviceImprovingTrendDesc": {
+    "placeholders": {
+      "oldAvg": { "type": "int" },
+      "newAvg": { "type": "int" }
+    }
+  },
+  "saveGoalButton": "Hedefi Kaydet",
+  "durationSliderLabel": "Uyku Süresi",
+  "bedtimePickerLabel": "Yatış Saati",
+  "wakeTimePickerLabel": "Uyanış Saati",
+  "scoreSliderLabel": "Hedef Skor",
+  "goalSavedMessage": "Hedef kaydedildi!",
+  "coachEntryButton": "AI Koç",
+  "completionRateLabel": "%{rate} başarı oranı",
+  "@completionRateLabel": {
+    "placeholders": { "rate": { "type": "int" } }
   }
 }

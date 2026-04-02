@@ -5,6 +5,8 @@ import 'features/alarm/presentation/screens/alarm_ring_screen.dart';
 import 'features/alarm/presentation/screens/home_screen.dart';
 import 'features/settings/presentation/screens/settings_screen.dart';
 import 'features/sleep/presentation/screens/sleep_dashboard_screen.dart';
+import 'features/sleep_coach/presentation/screens/coach_screen.dart';
+import 'features/sleep_coach/presentation/screens/sleep_goal_screen.dart';
 
 /// Uygulama route yapılandırması.
 final GoRouter appRouter = GoRouter(
@@ -32,6 +34,18 @@ final GoRouter appRouter = GoRouter(
         final alarm = state.extra as Alarm;
         return AlarmRingScreen(alarm: alarm);
       },
+    ),
+    GoRoute(
+      path: '/coach',
+      name: 'coach',
+      builder: (context, state) => const CoachScreen(),
+      routes: [
+        GoRoute(
+          path: 'goal',
+          name: 'coach-goal',
+          builder: (context, state) => const SleepGoalScreen(),
+        ),
+      ],
     ),
   ],
 );

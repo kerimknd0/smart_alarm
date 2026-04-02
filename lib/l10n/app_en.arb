@@ -264,5 +264,144 @@
       "thisWeek": { "type": "int" },
       "lastWeek": { "type": "int" }
     }
+  },
+
+  "coachTitle": "AI Sleep Coach",
+  "coachSubtitle": "Personalized recommendations based on your sleep data",
+  "coachNoData": "No sleep data yet",
+  "coachNoDataHint": "Start tracking your sleep to get personalized recommendations.",
+  "sleepGoalTitle": "Sleep Goal",
+  "setGoal": "Set Goal",
+  "editGoal": "Edit Goal",
+  "yourGoal": "Your Goal",
+  "goalNotSet": "Goal not set",
+  "goalProgress": "Goal Progress",
+  "daysAchievedLabel": "{achieved} / {total} nights",
+  "@daysAchievedLabel": {
+    "placeholders": {
+      "achieved": { "type": "int" },
+      "total": { "type": "int" }
+    }
+  },
+  "currentStreakLabel": "{streak} night streak",
+  "@currentStreakLabel": {
+    "placeholders": { "streak": { "type": "int" } }
+  },
+  "sleepDebtTitle": "Sleep Debt",
+  "sleepDebtValue": "{hours}h debt",
+  "@sleepDebtValue": {
+    "placeholders": { "hours": { "type": "String" } }
+  },
+  "noDebt": "No debt 🎉",
+  "debtRecovery": "~{days} nights to recover",
+  "@debtRecovery": {
+    "placeholders": { "days": { "type": "int" } }
+  },
+  "targetDuration": "Target Duration",
+  "targetBedtime": "Target Bedtime",
+  "targetWakeTime": "Target Wake Time",
+  "targetScore": "Target Score",
+  "notSet": "Not set",
+  "hoursMinutesLabel": "{h}h {m}m",
+  "@hoursMinutesLabel": {
+    "placeholders": {
+      "h": { "type": "int" },
+      "m": { "type": "int" }
+    }
+  },
+  "advicesTitle": "Recommendations",
+  "noAdvices": "No recommendations",
+  "noAdvicesHint": "Your sleep looks great! Keep it up.",
+  "advicePriorityHigh": "High",
+  "advicePriorityMedium": "Medium",
+  "advicePriorityLow": "Low",
+  "adviceCategoryDuration": "Duration",
+  "adviceCategoryQuality": "Quality",
+  "adviceCategoryConsistency": "Consistency",
+  "adviceCategoryHabit": "Habit",
+  "adviceCategoryAchievement": "Achievement",
+  "adviceBedtimeTooLateTitle": "Late Bedtime",
+  "adviceBedtimeTooLateDesc": "You're going to bed {diffMinutes} minutes later than your goal ({targetBedtime}). Try going to bed at {targetBedtime} tonight.",
+  "@adviceBedtimeTooLateDesc": {
+    "placeholders": {
+      "diffMinutes": { "type": "int" },
+      "targetBedtime": { "type": "String" }
+    }
+  },
+  "adviceBedtimeTooEarlyTitle": "Early Bedtime",
+  "adviceBedtimeTooEarlyDesc": "You're going to bed earlier than your goal. Average: {avgBedtime}, Target: {targetBedtime}.",
+  "@adviceBedtimeTooEarlyDesc": {
+    "placeholders": {
+      "avgBedtime": { "type": "String" },
+      "targetBedtime": { "type": "String" }
+    }
+  },
+  "adviceSleepDurationShortTitle": "Insufficient Sleep",
+  "adviceSleepDurationShortDesc": "You're sleeping {shortfallMinutes} minutes less than your goal. Try going to bed {shortfallMinutes} minutes earlier.",
+  "@adviceSleepDurationShortDesc": {
+    "placeholders": { "shortfallMinutes": { "type": "int" } }
+  },
+  "adviceSleepDurationLongTitle": "Excessive Sleep",
+  "adviceSleepDurationLongDesc": "You're sleeping {excessMinutes} minutes more than optimal. A regular wake time will increase energy levels.",
+  "@adviceSleepDurationLongDesc": {
+    "placeholders": { "excessMinutes": { "type": "int" } }
+  },
+  "adviceReduceSnoozeTitle": "Stop Snoozing",
+  "adviceReduceSnoozeDesc": "You're snoozing an average of {avgSnooze} times per night. Fragmented sleep reduces sleep quality.",
+  "@adviceReduceSnoozeDesc": {
+    "placeholders": { "avgSnooze": { "type": "String" } }
+  },
+  "adviceReduceWakeupsTitle": "Frequent Night Waking",
+  "adviceReduceWakeupsDesc": "You're waking up {avgWakeCount} times per night on average. Limit screen time and caffeine before bed.",
+  "@adviceReduceWakeupsDesc": {
+    "placeholders": { "avgWakeCount": { "type": "String" } }
+  },
+  "adviceImproveEfficiencyTitle": "Low Sleep Efficiency",
+  "adviceImproveEfficiencyDesc": "Your sleep efficiency is {avgEfficiency}%. Avoiding screen use before bed can help.",
+  "@adviceImproveEfficiencyDesc": {
+    "placeholders": { "avgEfficiency": { "type": "int" } }
+  },
+  "adviceInconsistentBedtimeTitle": "Irregular Sleep Schedule",
+  "adviceInconsistentBedtimeDesc": "Your bedtime varies by {varianceMinutes} minutes. Consistent sleep times support your circadian rhythm.",
+  "@adviceInconsistentBedtimeDesc": {
+    "placeholders": { "varianceMinutes": { "type": "int" } }
+  },
+  "adviceSocialJetLagTitle": "Social Jet Lag Warning",
+  "adviceSocialJetLagDesc": "There's a {diffMinutes}-minute difference between your weekday and weekend bedtimes. This disrupts your circadian rhythm.",
+  "@adviceSocialJetLagDesc": {
+    "placeholders": { "diffMinutes": { "type": "int" } }
+  },
+  "adviceSleepDebtTitle": "Sleep Debt Building",
+  "adviceSleepDebtDesc": "You've accumulated {debtHours} hours of sleep debt in the last 7 days. Try going to bed earlier.",
+  "@adviceSleepDebtDesc": {
+    "placeholders": { "debtHours": { "type": "String" } }
+  },
+  "adviceGreatStreakTitle": "Amazing Streak! 🏆",
+  "adviceGreatStreakDesc": "You've met your sleep goal for {streak} consecutive nights. Keep it up!",
+  "@adviceGreatStreakDesc": {
+    "placeholders": { "streak": { "type": "int" } }
+  },
+  "adviceGoalAchievedTitle": "Goal Achieved! ✅",
+  "adviceGoalAchievedDesc": "You hit your sleep goal last night. Great job!",
+  "advicePersonalBestTitle": "Personal Best! 🌟",
+  "advicePersonalBestDesc": "Last night was your best sleep quality ever. Keep building on this!",
+  "adviceImprovingTrendTitle": "Improving Trend! 📈",
+  "adviceImprovingTrendDesc": "Your average score improved from {oldAvg} to {newAvg} this week. Great progress!",
+  "@adviceImprovingTrendDesc": {
+    "placeholders": {
+      "oldAvg": { "type": "int" },
+      "newAvg": { "type": "int" }
+    }
+  },
+  "saveGoalButton": "Save Goal",
+  "durationSliderLabel": "Sleep Duration",
+  "bedtimePickerLabel": "Bedtime",
+  "wakeTimePickerLabel": "Wake Time",
+  "scoreSliderLabel": "Target Score",
+  "goalSavedMessage": "Goal saved!",
+  "coachEntryButton": "AI Coach",
+  "completionRateLabel": "{rate}% success rate",
+  "@completionRateLabel": {
+    "placeholders": { "rate": { "type": "int" } }
   }
 }

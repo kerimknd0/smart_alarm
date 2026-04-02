@@ -541,4 +541,251 @@ class STr extends S {
   String anomalyImprovementDesc(int thisWeek, int lastWeek) {
     return 'Bu haftaki ortalama skorunuz ($thisWeek), geçen haftaya ($lastWeek) göre önemli ölçüde arttı.';
   }
+
+  @override
+  String get coachTitle => 'AI Uyku Koçu';
+
+  @override
+  String get coachSubtitle =>
+      'Uyku verilerinize dayalı kişiselleştirilmiş öneriler';
+
+  @override
+  String get coachNoData => 'Henüz uyku verisi yok';
+
+  @override
+  String get coachNoDataHint =>
+      'Kişiselleştirilmiş öneriler almak için uyku takibine başlayın.';
+
+  @override
+  String get sleepGoalTitle => 'Uyku Hedefi';
+
+  @override
+  String get setGoal => 'Hedef Belirle';
+
+  @override
+  String get editGoal => 'Hedefi Düzenle';
+
+  @override
+  String get yourGoal => 'Hedefiniz';
+
+  @override
+  String get goalNotSet => 'Hedef belirlenmedi';
+
+  @override
+  String get goalProgress => 'Hedef İlerleme';
+
+  @override
+  String daysAchievedLabel(int achieved, int total) {
+    return '$achieved / $total gece';
+  }
+
+  @override
+  String currentStreakLabel(int streak) {
+    return '$streak gece serisi';
+  }
+
+  @override
+  String get sleepDebtTitle => 'Uyku Borcu';
+
+  @override
+  String sleepDebtValue(String hours) {
+    return '$hours saat borç';
+  }
+
+  @override
+  String get noDebt => 'Borç yok 🎉';
+
+  @override
+  String debtRecovery(int days) {
+    return 'Telafi için ~$days gece';
+  }
+
+  @override
+  String get targetDuration => 'Hedef Süre';
+
+  @override
+  String get targetBedtime => 'Hedef Yatış Saati';
+
+  @override
+  String get targetWakeTime => 'Hedef Uyanış Saati';
+
+  @override
+  String get targetScore => 'Hedef Skor';
+
+  @override
+  String get notSet => 'Belirtilmedi';
+
+  @override
+  String hoursMinutesLabel(int h, int m) {
+    return '${h}s ${m}dk';
+  }
+
+  @override
+  String get advicesTitle => 'Öneriler';
+
+  @override
+  String get noAdvices => 'Öneri yok';
+
+  @override
+  String get noAdvicesHint => 'Uykunuz harika görünüyor! Böyle devam edin.';
+
+  @override
+  String get advicePriorityHigh => 'Yüksek';
+
+  @override
+  String get advicePriorityMedium => 'Orta';
+
+  @override
+  String get advicePriorityLow => 'Düşük';
+
+  @override
+  String get adviceCategoryDuration => 'Süre';
+
+  @override
+  String get adviceCategoryQuality => 'Kalite';
+
+  @override
+  String get adviceCategoryConsistency => 'Tutarlılık';
+
+  @override
+  String get adviceCategoryHabit => 'Alışkanlık';
+
+  @override
+  String get adviceCategoryAchievement => 'Başarı';
+
+  @override
+  String get adviceBedtimeTooLateTitle => 'Geç Yatış';
+
+  @override
+  String adviceBedtimeTooLateDesc(int diffMinutes, String targetBedtime) {
+    return 'Hedefinizden $diffMinutes dakika geç yatıyorsunuz ($targetBedtime). Bu gece $targetBedtime\'de yatmayı deneyin.';
+  }
+
+  @override
+  String get adviceBedtimeTooEarlyTitle => 'Erken Yatış';
+
+  @override
+  String adviceBedtimeTooEarlyDesc(String avgBedtime, String targetBedtime) {
+    return 'Hedefinizden erken yatıyorsunuz. Ortalama: $avgBedtime, Hedef: $targetBedtime.';
+  }
+
+  @override
+  String get adviceSleepDurationShortTitle => 'Yetersiz Uyku';
+
+  @override
+  String adviceSleepDurationShortDesc(int shortfallMinutes) {
+    return 'Hedefinizden $shortfallMinutes dakika az uyuyorsunuz. $shortfallMinutes dakika erken yatmayı deneyin.';
+  }
+
+  @override
+  String get adviceSleepDurationLongTitle => 'Aşırı Uyku';
+
+  @override
+  String adviceSleepDurationLongDesc(int excessMinutes) {
+    return 'Optimal süreden $excessMinutes dakika fazla uyuyorsunuz. Düzenli uyanış saati enerji seviyenizi artırır.';
+  }
+
+  @override
+  String get adviceReduceSnoozeTitle => 'Erteleme Bağımlılığı';
+
+  @override
+  String adviceReduceSnoozeDesc(String avgSnooze) {
+    return 'Geceleri ortalama $avgSnooze kez alarm erteliyorsunuz. Parçalı uyku, uyku kalitesini düşürür.';
+  }
+
+  @override
+  String get adviceReduceWakeupsTitle => 'Sık Gece Uyanması';
+
+  @override
+  String adviceReduceWakeupsDesc(String avgWakeCount) {
+    return 'Geceleri ortalama $avgWakeCount kez uyanıyorsunuz. Uyumadan önce ekran ve kafein tüketimini azaltın.';
+  }
+
+  @override
+  String get adviceImproveEfficiencyTitle => 'Düşük Uyku Verimliliği';
+
+  @override
+  String adviceImproveEfficiencyDesc(int avgEfficiency) {
+    return 'Uyku verimliliğiniz %$avgEfficiency. Uyumadan önce ekran kullanımından kaçınmak yardımcı olabilir.';
+  }
+
+  @override
+  String get adviceInconsistentBedtimeTitle => 'Düzensiz Uyku Saati';
+
+  @override
+  String adviceInconsistentBedtimeDesc(int varianceMinutes) {
+    return 'Yatış saatiniz $varianceMinutes dakika değişkenlik gösteriyor. Tutarlı uyku saatleri sirkadiyen ritminizi destekler.';
+  }
+
+  @override
+  String get adviceSocialJetLagTitle => 'Sosyal Jet Lag Uyarısı';
+
+  @override
+  String adviceSocialJetLagDesc(int diffMinutes) {
+    return 'Hafta içi ve hafta sonu yatış saatleriniz arasında $diffMinutes dakika fark var. Bu sirkadiyen ritminizi bozuyor.';
+  }
+
+  @override
+  String get adviceSleepDebtTitle => 'Uyku Borcu Birikyor';
+
+  @override
+  String adviceSleepDebtDesc(String debtHours) {
+    return 'Son 7 günde $debtHours saat uyku borcu biriktirdiniz. Daha erken yatmayı deneyin.';
+  }
+
+  @override
+  String get adviceGreatStreakTitle => 'Muhteşem Seri! 🏆';
+
+  @override
+  String adviceGreatStreakDesc(int streak) {
+    return '$streak gece üst üste uyku hedefinizi tutturdunuz. Böyle devam edin!';
+  }
+
+  @override
+  String get adviceGoalAchievedTitle => 'Hedefe Ulaşıldı! ✅';
+
+  @override
+  String get adviceGoalAchievedDesc =>
+      'Dün gece uyku hedefinizi tutturdunuz. Harika iş!';
+
+  @override
+  String get advicePersonalBestTitle => 'Kişisel Rekor! 🌟';
+
+  @override
+  String get advicePersonalBestDesc =>
+      'Dün gece şimdiye kadarki en iyi uyku kalitenizdi. Bunu sürdürün!';
+
+  @override
+  String get adviceImprovingTrendTitle => 'Gelişen Trend! 📈';
+
+  @override
+  String adviceImprovingTrendDesc(int oldAvg, int newAvg) {
+    return 'Bu hafta ortalama skorunuz $oldAvg\'den $newAvg\'ye yükseldi. Harika ilerleme!';
+  }
+
+  @override
+  String get saveGoalButton => 'Hedefi Kaydet';
+
+  @override
+  String get durationSliderLabel => 'Uyku Süresi';
+
+  @override
+  String get bedtimePickerLabel => 'Yatış Saati';
+
+  @override
+  String get wakeTimePickerLabel => 'Uyanış Saati';
+
+  @override
+  String get scoreSliderLabel => 'Hedef Skor';
+
+  @override
+  String get goalSavedMessage => 'Hedef kaydedildi!';
+
+  @override
+  String get coachEntryButton => 'AI Koç';
+
+  @override
+  String completionRateLabel(int rate) {
+    return '%$rate başarı oranı';
+  }
 }

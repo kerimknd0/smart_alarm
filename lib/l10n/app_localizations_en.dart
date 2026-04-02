@@ -538,4 +538,251 @@ class SEn extends S {
   String anomalyImprovementDesc(int thisWeek, int lastWeek) {
     return 'Your average score this week ($thisWeek) has significantly improved compared to last week ($lastWeek).';
   }
+
+  @override
+  String get coachTitle => 'AI Sleep Coach';
+
+  @override
+  String get coachSubtitle =>
+      'Personalized recommendations based on your sleep data';
+
+  @override
+  String get coachNoData => 'No sleep data yet';
+
+  @override
+  String get coachNoDataHint =>
+      'Start tracking your sleep to get personalized recommendations.';
+
+  @override
+  String get sleepGoalTitle => 'Sleep Goal';
+
+  @override
+  String get setGoal => 'Set Goal';
+
+  @override
+  String get editGoal => 'Edit Goal';
+
+  @override
+  String get yourGoal => 'Your Goal';
+
+  @override
+  String get goalNotSet => 'Goal not set';
+
+  @override
+  String get goalProgress => 'Goal Progress';
+
+  @override
+  String daysAchievedLabel(int achieved, int total) {
+    return '$achieved / $total nights';
+  }
+
+  @override
+  String currentStreakLabel(int streak) {
+    return '$streak night streak';
+  }
+
+  @override
+  String get sleepDebtTitle => 'Sleep Debt';
+
+  @override
+  String sleepDebtValue(String hours) {
+    return '${hours}h debt';
+  }
+
+  @override
+  String get noDebt => 'No debt 🎉';
+
+  @override
+  String debtRecovery(int days) {
+    return '~$days nights to recover';
+  }
+
+  @override
+  String get targetDuration => 'Target Duration';
+
+  @override
+  String get targetBedtime => 'Target Bedtime';
+
+  @override
+  String get targetWakeTime => 'Target Wake Time';
+
+  @override
+  String get targetScore => 'Target Score';
+
+  @override
+  String get notSet => 'Not set';
+
+  @override
+  String hoursMinutesLabel(int h, int m) {
+    return '${h}h ${m}m';
+  }
+
+  @override
+  String get advicesTitle => 'Recommendations';
+
+  @override
+  String get noAdvices => 'No recommendations';
+
+  @override
+  String get noAdvicesHint => 'Your sleep looks great! Keep it up.';
+
+  @override
+  String get advicePriorityHigh => 'High';
+
+  @override
+  String get advicePriorityMedium => 'Medium';
+
+  @override
+  String get advicePriorityLow => 'Low';
+
+  @override
+  String get adviceCategoryDuration => 'Duration';
+
+  @override
+  String get adviceCategoryQuality => 'Quality';
+
+  @override
+  String get adviceCategoryConsistency => 'Consistency';
+
+  @override
+  String get adviceCategoryHabit => 'Habit';
+
+  @override
+  String get adviceCategoryAchievement => 'Achievement';
+
+  @override
+  String get adviceBedtimeTooLateTitle => 'Late Bedtime';
+
+  @override
+  String adviceBedtimeTooLateDesc(int diffMinutes, String targetBedtime) {
+    return 'You\'re going to bed $diffMinutes minutes later than your goal ($targetBedtime). Try going to bed at $targetBedtime tonight.';
+  }
+
+  @override
+  String get adviceBedtimeTooEarlyTitle => 'Early Bedtime';
+
+  @override
+  String adviceBedtimeTooEarlyDesc(String avgBedtime, String targetBedtime) {
+    return 'You\'re going to bed earlier than your goal. Average: $avgBedtime, Target: $targetBedtime.';
+  }
+
+  @override
+  String get adviceSleepDurationShortTitle => 'Insufficient Sleep';
+
+  @override
+  String adviceSleepDurationShortDesc(int shortfallMinutes) {
+    return 'You\'re sleeping $shortfallMinutes minutes less than your goal. Try going to bed $shortfallMinutes minutes earlier.';
+  }
+
+  @override
+  String get adviceSleepDurationLongTitle => 'Excessive Sleep';
+
+  @override
+  String adviceSleepDurationLongDesc(int excessMinutes) {
+    return 'You\'re sleeping $excessMinutes minutes more than optimal. A regular wake time will increase energy levels.';
+  }
+
+  @override
+  String get adviceReduceSnoozeTitle => 'Stop Snoozing';
+
+  @override
+  String adviceReduceSnoozeDesc(String avgSnooze) {
+    return 'You\'re snoozing an average of $avgSnooze times per night. Fragmented sleep reduces sleep quality.';
+  }
+
+  @override
+  String get adviceReduceWakeupsTitle => 'Frequent Night Waking';
+
+  @override
+  String adviceReduceWakeupsDesc(String avgWakeCount) {
+    return 'You\'re waking up $avgWakeCount times per night on average. Limit screen time and caffeine before bed.';
+  }
+
+  @override
+  String get adviceImproveEfficiencyTitle => 'Low Sleep Efficiency';
+
+  @override
+  String adviceImproveEfficiencyDesc(int avgEfficiency) {
+    return 'Your sleep efficiency is $avgEfficiency%. Avoiding screen use before bed can help.';
+  }
+
+  @override
+  String get adviceInconsistentBedtimeTitle => 'Irregular Sleep Schedule';
+
+  @override
+  String adviceInconsistentBedtimeDesc(int varianceMinutes) {
+    return 'Your bedtime varies by $varianceMinutes minutes. Consistent sleep times support your circadian rhythm.';
+  }
+
+  @override
+  String get adviceSocialJetLagTitle => 'Social Jet Lag Warning';
+
+  @override
+  String adviceSocialJetLagDesc(int diffMinutes) {
+    return 'There\'s a $diffMinutes-minute difference between your weekday and weekend bedtimes. This disrupts your circadian rhythm.';
+  }
+
+  @override
+  String get adviceSleepDebtTitle => 'Sleep Debt Building';
+
+  @override
+  String adviceSleepDebtDesc(String debtHours) {
+    return 'You\'ve accumulated $debtHours hours of sleep debt in the last 7 days. Try going to bed earlier.';
+  }
+
+  @override
+  String get adviceGreatStreakTitle => 'Amazing Streak! 🏆';
+
+  @override
+  String adviceGreatStreakDesc(int streak) {
+    return 'You\'ve met your sleep goal for $streak consecutive nights. Keep it up!';
+  }
+
+  @override
+  String get adviceGoalAchievedTitle => 'Goal Achieved! ✅';
+
+  @override
+  String get adviceGoalAchievedDesc =>
+      'You hit your sleep goal last night. Great job!';
+
+  @override
+  String get advicePersonalBestTitle => 'Personal Best! 🌟';
+
+  @override
+  String get advicePersonalBestDesc =>
+      'Last night was your best sleep quality ever. Keep building on this!';
+
+  @override
+  String get adviceImprovingTrendTitle => 'Improving Trend! 📈';
+
+  @override
+  String adviceImprovingTrendDesc(int oldAvg, int newAvg) {
+    return 'Your average score improved from $oldAvg to $newAvg this week. Great progress!';
+  }
+
+  @override
+  String get saveGoalButton => 'Save Goal';
+
+  @override
+  String get durationSliderLabel => 'Sleep Duration';
+
+  @override
+  String get bedtimePickerLabel => 'Bedtime';
+
+  @override
+  String get wakeTimePickerLabel => 'Wake Time';
+
+  @override
+  String get scoreSliderLabel => 'Target Score';
+
+  @override
+  String get goalSavedMessage => 'Goal saved!';
+
+  @override
+  String get coachEntryButton => 'AI Coach';
+
+  @override
+  String completionRateLabel(int rate) {
+    return '$rate% success rate';
+  }
 }

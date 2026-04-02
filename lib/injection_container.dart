@@ -20,6 +20,13 @@ import 'features/sleep/domain/usecases/get_sleep_history.dart';
 import 'features/sleep/domain/usecases/get_weekly_stats.dart';
 import 'features/sleep/domain/usecases/save_sleep_record.dart';
 import 'features/sleep/presentation/bloc/sleep_bloc.dart';
+import 'features/sleep_coach/data/repositories/goal_repository_impl.dart';
+import 'features/sleep_coach/domain/repositories/goal_repository.dart';
+import 'features/sleep_coach/domain/usecases/get_coach_advice.dart';
+import 'features/sleep_coach/domain/usecases/get_goal_progress.dart';
+import 'features/sleep_coach/domain/usecases/get_sleep_goal.dart';
+import 'features/sleep_coach/domain/usecases/save_sleep_goal.dart';
+import 'features/sleep_coach/presentation/bloc/coach_bloc.dart';
 
 final sl = GetIt.instance;
 
@@ -68,6 +75,22 @@ Future<void> initDependencies() async {
       getWeeklyStats: sl(),
       getAnomalies: sl(),
       saveSleepRecord: sl(),
+    ),
+  );
+
+  // ── Sleep Coach ──
+  sl.registerLazySingleton<GoalRepository>(() => GoalRepositoryImpl(sl()));
+  sl.registerLazySingleton(() => GetCoachAdvice(sl(), sl()));
+  sl.registerLazySingleton(() => GetSleepGoal(sl()));
+  sl.registerLazySingleton(() => SaveSleepGoal(sl()));
+  sl.registerLazySingleton(() => GetGoalProgress(sl(), sl()));
+
+  sl.registerFactory(
+    () => CoachBloc(
+      getCoachAdvice: sl(),
+      getGoalProgress: sl(),
+      getSleepGoal: sl(),
+      saveSleepGoal: sl(),
     ),
   );
 }
